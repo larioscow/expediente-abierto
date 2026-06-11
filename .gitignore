@@ -1,6 +1,10 @@
 data/raw/*.csv
+data/raw/*.json
 data/work/
+data/state/
 .venv/
 __pycache__/
 *.duckdb
+*.bak
 .playwright-mcp/
+findings/alerts.jsonl
