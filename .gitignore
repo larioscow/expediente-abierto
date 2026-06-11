@@ -1,0 +1,6 @@
+data/raw/*.csv
+data/work/
+.venv/
+__pycache__/
+*.duckdb
+.playwright-mcp/

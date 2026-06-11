@@ -1,0 +1,702 @@
+{
+"4a0d683014de4397a9096e87bf723432": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-110-007000999-N-504-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 2
+},
+"2d2bc457dd71475c9885cffbab22b7e6": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR008-N-64-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"e8608317cb5941009f5ada662f89cb73": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR030-T-75-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"9759120ff25b4132abe1803661cea00d": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-110-007000999-N-517-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 2
+},
+"2dc6f1d46d574d7f81133540f3a51678": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-13-J2Y-013J2Y001-N-36-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 1
+},
+"d64f0746f5fb46c9b472dc0a740f87da": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-HZI-007HZI999-N-79-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"53b9aef786864ceaa361afb732a38041": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-652-009000024-N-18-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"7ed5ec75483f45c38dd9cd3c9aba66b5": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-110-007000999-N-419-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"5832741ff0c546899517eaf5a8a29085": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-112-007000997-T-261-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"f9d37fac32e84e95b534e5ff3e1b1c61": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-50-GYR-050GYR057-N-62-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"884732b5ea5341ff88a1b392def93266": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-70-Q94-911043999-N-31-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"806b839e77f64d1a9d2b752308f44aab": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-13-312-013000999-T-309-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"277ae34a99bb402f8704f2fafda6771a": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-110-007000999-N-464-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"1f8f07c1018d4e3d8038beb069c1d615": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-110-007000999-N-384-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"9fa7d9d77ecf42faa09527c7e15fe242": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-650-009000938-N-94-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"69e26645a04d464685dcd5df432d1af4": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR998-N-54-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"a6c08ef4842942639dd4d308de1074c4": {
+"estatus": "VIGENTE PAP",
+"numero": "IO-13-J3B-013J3B002-N-24-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 1
+},
+"9ba951159ac749e9bb4541a2b0c543d3": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-16-B00-016B00046-N-9-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"fb0dffde00ec427092ed79bb1ebef01d": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-12-NCK-012NCK001-N-31-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"af877faa34b341a19dcf54e0dc7de68d": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-51-GYN-051GYN030-N-46-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 2
+},
+"eeb035df9f1e46ca8e91541700decdcd": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR033-T-44-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 2
+},
+"b3e11f48e3fd41cdba73d64bb5d97451": {
+"estatus": "VIGENTE PAP",
+"numero": "IO-74-054-815075853-N-1-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"ef644be6a75c43739b5639bf3da6743a": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-56-AYO-056AYO952-N-18-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"5cfb6f637a984d9e89d2ffe84adf5273": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-84-H17-825006999-N-1-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 1
+},
+"cf668809751842768af20867080c82d2": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-12-Y00-012Y00999-N-3-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 2
+},
+"070d7fe27ad04ecf9ffb8219cfabb1e7": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-08-279-008000979-N-8-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"d8e10f49a4984d8f98b28cef703970af": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR017-N-107-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"845dcb9fe5ab41e5b1606a5d6f451c57": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-18-T0O-018T0O002-N-8-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"cb48b7fd783b4dffbd9383dca90d0892": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-51-GYN-051GYN048-N-31-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"4cfd91b0e7b04bafb676771bbe8a9c4a": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-16-B00-016B00052-N-8-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"22f1b30715214da1bde2631e639aafdd": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-652-009000024-N-19-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"29f72c034d6c49f6bb203b5307846e19": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-649-009000018-N-14-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"bc68b7db303a45b59ce624563802ad82": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-08-512-008000999-N-38-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"4b5f65a5fc1a41b0acae2d3e69b0ead8": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR026-N-94-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"ad8fa8bf2b4f4206ba631264e93eb246": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-06-E00-006E00002-N-30-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"43c55c194bab4d16befa18d69973fe04": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-38-90Q-03890Q010-N-24-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"dd2eb36d8f1c4ea89c7e3aea38aec395": {
+"estatus": "VIGENTE PAP",
+"numero": "IO-87-Y03-928010997-N-44-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"8daddf194a45484ba3f428c9cfe3ff47": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-51-GYN-051GYN300-N-12-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"52e7d2d08c7f48848258bea25905274c": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-08-VSS-008VSS005-N-49-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"06605aae2ddd47a19550eef037ed6241": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-38-91S-03891S999-N-90-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"3fd60c5acfcf457380cb3fae923e75d7": {
+"estatus": "VIGENTE SIN ACTA",
+"numero": "IA-16-B00-016B00026-N-25-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"197b61f79ff94a669cc5539c0f546d6c": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR998-N-55-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"6e7172edb69e4dec8fb103c8280556df": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-649-009000018-N-15-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"dd6bf3e823f94793aa54d7636f8646af": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-51-GYN-051GYN048-N-32-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"eea2dc7ebf5142b0a9fe58a5e427190f": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-16-B00-016B00046-N-10-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"02604d1a945d41e19090a2d06b93b615": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-18-TON-018TON999-N-41-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"8f8945d809a6432caecaaa29e48792d0": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-48-410-048410002-N-20-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"f36cf07bbcf74354bea691e537b303c7": {
+"estatus": "VIGENTE PAP",
+"numero": "IO-63-O65-904012996-N-16-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"bbee81018c524b509595dca89dc2876d": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-51-GYN-051GYN085-I-38-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"2149861c502940a385371237372ba189": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-652-009000024-N-20-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"e41131a9f2394e34961d2cbe15dd2ada": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-16-B00-016B00011-N-7-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"2125f4bff9024618a701b0392acc0ce9": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-06-G1H-006G1H001-N-20-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"3cbfde72629442c592e387e643e058a1": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-08-273-008000968-N-4-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"6a498ab08f0b4138b76cb2f12f1ec6ae": {
+"estatus": "VIGENTE SIN ACTA",
+"numero": "LA-09-641-009000968-N-1-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"7ede56d288cc498fb1ce0a74b7c3c3a7": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-650-009000938-N-95-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"cb187dda5c8e4faea99ff8db0f9ab3c6": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-09-640-009000993-N-1-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"2950883d9523493192eec138c6897fd0": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-20-134-020000025-N-14-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"18d3b562c1f442a4bdd3a30a63985cfe": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-09-640-009000993-N-2-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"6bb57af6312540399ebb58bd923ff8fa": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-51-GYN-051GYN876-N-1-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"55c6b8ff707b4e5badd631afc8f8d45c": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-13-J3B-013J3B002-N-23-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"149a79c4a1314a969e094b1979ef0313": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-16-B00-016B00034-N-17-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"ea29943aa9dd4604b46e6fd42e71f85a": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR998-N-56-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"ee7f3e1326ac403a8783c17ca0d32b57": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-652-009000024-N-21-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"d58e416065544f97bd840482955a9808": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-16-B00-016B00046-N-11-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"7896bc4abd74406b869676ab492ae117": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-13-J3B-013J3B001-N-35-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"94bf9cdfdade40e9b5d1fd45bc39dad7": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR120-T-11-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"db59c8b4e95445b4bcf42b965c4b6c9c": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-08-512-008000999-N-39-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"44e88e26b6434c86ba0ca2a2f4201222": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-652-009000024-N-22-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"961f15bb8ded41749829ab131ed1df0d": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-06-G1H-006G1H001-N-19-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"64cc352d35744e3ebf1ecb6ef6cae918": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR998-N-57-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"f625d4daa7de4c28854bb66bc5604b60": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-16-B00-016B00011-N-8-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"ce4aceb1458f4ea3a150063442224655": {
+"estatus": "VIGENTE PAP",
+"numero": "IO-86-X52-927009942-N-24-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"74f57081b6e64d0cac72fd21bb135642": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-20-150-020000004-N-18-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"47921fd28c144e0088b0930889a58fd5": {
+"estatus": "VIGENTE PAP",
+"numero": "IO-86-X52-927009942-N-25-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"b0d69c5d37ff44b9b228e1b4ecfcdf56": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-652-009000024-N-23-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"9658b13a467b4accbd34ff1920e9f266": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-36-142-036000999-N-33-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"1cb3735bdaea4b70b1e5f2ac24a552b5": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-51-GYN-051GYN300-N-11-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"0b1e60ef25b147bfa081b2ade3845efe": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-652-009000024-N-24-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"36697aed509046e1b2e2764a21b09fca": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-51-GYN-051GYN300-N-13-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"b8b845bc94624364a3629b91e799b205": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-16-B00-016B00011-N-9-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"8fc6ed08b3e4461da2aca0b833cb45fd": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-627-009000970-N-32-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"87ab9ab89ffb445d8a32fefc90a9260d": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-110-007000999-N-483-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"b6dd618fa3944e2da94dd579dfb3a604": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR030-T-76-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"8698e88b7bf34f9a9123c781aca6ea57": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR010-T-58-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"da49d7b5341f4fd8b3b1619e03600736": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-110-007000999-I-408-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"948e8f454bbd40888c01437b3e57ef83": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-HZI-007HZI999-N-80-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"ff024e9b8dba4a02b806b8dcc5f71544": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-HXA-007HXA001-N-65-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"0fbc0344854a4a1da695d7916a9ae88b": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR001-N-52-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"dd4b994466b749caa1ad1aac1de693f9": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-12-NDE-012NDE001-N-93-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"1584df43b723435eb67ed83e175516f9": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-07-HZI-007HZI999-N-81-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"c06c4d161d854fef904f199046282888": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR010-T-62-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"5eff823aa53745d5bd4eb283190dd047": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR010-N-56-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"ecd7d352d20f42e4b82e294d768772db": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-12-NAW-012NAW001-N-80-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"73d22e7387d54a5baadae92fedb42210": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-51-GYN-051GYN003-T-8-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"ea7852cd23144ee683780a7649df611d": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-51-GYN-051GYN300-N-14-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"0b4fdc53c6914e5494944386dd5594e0": {
+"estatus": "VIGENTE PAP",
+"numero": "IA-13-312-013000999-T-327-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"0b9a922968a74e2cb317a6f56d2fcbba": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-51-GYN-051GYN056-N-71-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"ea26e22750ea4626b71a6a1b6078c28b": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-64-O72-905038959-N-11-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"654ab9405001498291f09bea462afd44": {
+"estatus": "VIGENTE PAP",
+"numero": "LA-50-GYR-050GYR017-N-108-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+},
+"cde7a70767d34d99af467e5f821a26fa": {
+"estatus": "VIGENTE PAP",
+"numero": "LO-09-210-009000999-T-580-2026",
+"first_seen": "2026-06-11T13:37:12.768702+00:00",
+"last_seen": "2026-06-11T13:37:12.768702+00:00",
+"score": 0
+}
+}

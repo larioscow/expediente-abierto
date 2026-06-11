@@ -1,0 +1,7 @@
+retrieved_at	sha256	bytes	file	url
+2026-06-10T23:32:51-06:00	6f96e81cdb8b9b1b30ec1b335e9ffb0e4592db109821c79373e17670d6c887c0	4660975	sat_69b_completo.csv	https://wu1agsprosta001.blob.core.windows.net/agsc-publicaciones/Datos_abiertos/Documents_AGAFF/Listado_completo_69-B.csv
+2026-06-10T23:32:59-06:00	ad310d8f9a9ebba5ca6bb84f69129ea580e7cd0ca036b2f1d1e6c8461f0d804f	110133164	contratos_2025.csv	https://comprasmx.buengobierno.gob.mx/cnetassets/datos_abiertos_contratos_expedientes/Contratos_CompraNet2025.csv
+2026-06-10T23:33:58-06:00	8299e7022bc297a82b8681dfecac46739e06b4591eb0349b4405babd672d98a1	168200141	contratos_2024.csv	https://comprasmx.buengobierno.gob.mx/cnetassets/datos_abiertos_contratos_expedientes/Contratos_CompraNet2024.csv
+2026-06-10T23:38:38-06:00	c3c749d714fa064ce4c6b2daf0ba82f38e4f8c0b61c035993c9affd0907c0518	188559037	contratos_2023.csv	https://comprasmx.buengobierno.gob.mx/cnetassets/datos_abiertos_contratos_expedientes/Contratos_CompraNet2023.csv
+2026-06-10T23:50:34-06:00	78f4139437f78843269cbde3121e45aafc5cb78670012e549e706f57fc9a7ff1	951619345	compranet_historico.csv	https://repodatos.atdt.gob.mx/api_update/sabg/contratos_expedientes_sistema_historico_compranet/compranet_historico.csv
+2026-06-11T07:30:45-06:00	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	0	sfp_sancionados.csv	https://datosabiertos.buengobierno.gob.mx/datosabiertos/sanc/proveedores_sancionados.csv

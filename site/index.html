@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Señales de riesgo en contrataciones públicas — México</title>
+<style>
+  body { font: 15px/1.5 system-ui, sans-serif; color: #1a1a1a; max-width: 1080px; margin: 2rem auto; padding: 0 1rem; }
+  h1 { font-size: 1.5rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.15rem; margin-top: 2.5rem; border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+  .meta, .caveat { color: #555; font-size: .85rem; }
+  .nums { display: flex; gap: 2.5rem; flex-wrap: wrap; margin: 1.5rem 0; }
+  .nums div b { display: block; font-size: 1.6rem; }
+  table { border-collapse: collapse; font-size: .8rem; margin-top: .75rem; }
+  th, td { text-align: left; padding: .3rem .6rem; border-bottom: 1px solid #eee; }
+  th { background: #fafafa; position: sticky; top: 0; }
+  .wrap { overflow-x: auto; }
+  code { background: #f4f4f4; padding: 0 .25rem; }
+</style></head><body>
+
+<h1>Señales de riesgo en contrataciones públicas federales</h1>
+<p class="meta">Cruces reproducibles de datos oficiales (ComprasMX, SAT 69-B, CompraNet histórico).
+Cada señal es un <strong>filtro estadístico que requiere verificación humana</strong>, no una acusación.
+Generado: 2026-06-11 ·
+Datos: contratos 2023–2025 (descarga 2026-06-10),
+histórico 2010–2023 (corte 2025-07), 69-B al 2026-04-30.</p>
+
+<div class="nums">
+  <div><b>$1,113M MXN</b>en contratos a empresas después confirmadas como factureras (EFOS definitivo), 2010–2025</div>
+  <div><b>$6,603M MXN</b>a empresas con menos de 1 año de constituidas, 2023–2025</div>
+  <div><b>83/129</b>instituciones fuera de conformidad Benford (MAD &gt; 0.015)</div>
+  <div><b>15</b>contratos firmados durante una inhabilitación vigente (SFP)</div>
+  <div><b>5</b>alertas en seguimiento (monitoreo casi en tiempo real)</div>
+</div>
+
+<h2>0 · Monitoreo casi en tiempo real (ComprasMX en vivo)</h2>
+<p>Un poller (<code>realtime/poll.py</code>) consulta el portal ComprasMX en vivo
+—montándose en la propia autenticación del sitio vía scrapling— y marca
+procedimientos y adjudicaciones de riesgo conforme se publican, no un año después.
+Señales: adjudicación directa, plazo recortado, contratación de emergencia,
+proveedor en la lista 69-B (cruce por nombre, verificar), montos altos.
+Última actualización de alertas: 2026-06-11 13:22 UTC.</p>
+<div class="wrap"><table><tr><th>Score</th><th>Dependencia</th><th>Procedimiento</th><th>Tipo</th><th>Por qué</th><th></th></tr><tr><td><b>2</b></td><td>SEDENA</td><td>LA-07-110-007000999-N-504-2026<br><small>CURSO RECURRENTE PARA PILOTOS EN EL EQUIPO FALCON F20</small></td><td>LICITACIÓN PÚBLICA</td><td><small>PLAZO_RECORTADO (+2): plazo de contratación recortado</small></td><td><a href="https://upcp-compranet.buengobierno.gob.mx/sitiopublico/#/sitiopublico/detalle/4a0d683014de4397a9096e87bf723432/procedimiento" target="_blank">ver</a></td></tr><tr><td><b>2</b></td><td>SEDENA</td><td>LA-07-110-007000999-N-517-2026<br><small>ADQUISICIÓN DE 14,714 COLCHONES MATRIMONIALES PARA ATENCIÓN DE LA POBLACIÓN DAMN</small></td><td>LICITACIÓN PÚBLICA</td><td><small>PLAZO_RECORTADO (+2): plazo de contratación recortado</small></td><td><a href="https://upcp-compranet.buengobierno.gob.mx/sitiopublico/#/sitiopublico/detalle/9759120ff25b4132abe1803661cea00d/procedimiento" target="_blank">ver</a></td></tr><tr><td><b>2</b></td><td>ISSSTE</td><td>LA-51-GYN-051GYN030-N-46-2026<br><small>‘‘ADQUISICIÓN DE MATERIAL DE LIMPIEZA”</small></td><td>LICITACIÓN PÚBLICA</td><td><small>PLAZO_RECORTADO (+2): plazo de contratación recortado</small></td><td><a href="https://upcp-compranet.buengobierno.gob.mx/sitiopublico/#/sitiopublico/detalle/af877faa34b341a19dcf54e0dc7de68d/procedimiento" target="_blank">ver</a></td></tr><tr><td><b>2</b></td><td>IMSS</td><td>LA-50-GYR-050GYR033-T-44-2026<br><small>SERV ESTUDIOS DE LABORATORIO CLÍNICO</small></td><td>LICITACIÓN PÚBLICA</td><td><small>PLAZO_RECORTADO (+2): plazo de contratación recortado</small></td><td><a href="https://upcp-compranet.buengobierno.gob.mx/sitiopublico/#/sitiopublico/detalle/eeb035df9f1e46ca8e91541700decdcd/procedimiento" target="_blank">ver</a></td></tr><tr><td><b>2</b></td><td>CONASAMA</td><td>LA-12-Y00-012Y00999-N-3-2026<br><small>CONTRATACIÓN DEL SERVICIO DE DIETAS (SERVICIO DE COMEDOR) PARA LAS UNIDADES HOSP</small></td><td>LICITACIÓN PÚBLICA</td><td><small>PLAZO_RECORTADO (+2): plazo de contratación recortado</small></td><td><a href="https://upcp-compranet.buengobierno.gob.mx/sitiopublico/#/sitiopublico/detalle/cf668809751842768af20867080c82d2/procedimiento" target="_blank">ver</a></td></tr></table></div>
+<p class="caveat">El feed en vivo expone nombre del proveedor (no RFC); el cruce 69-B
+aquí es por nombre y requiere verificación. El cruce exacto por RFC y la edad de
+la empresa corren en el lote periódico cuando se publica el CSV anual.</p>
+
+<h2>1 · Contratos a empresas del listado 69-B del SAT (factureras)</h2>
+<p>Cruce exacto por RFC (2023–2025) y por nombre normalizado (histórico 2010–2023,
+menor confianza). Se excluyen empresas que desvirtuaron o ganaron en tribunales.
+El patrón estructural: <strong>el 100% de los contratos se firmó antes de la confirmación
+del SAT</strong> — la confirmación tarda 12–36 meses; la detección al momento de la
+adjudicación es el hueco que este rastreador cubre.</p>
+<div class="wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>proveedor</th>
+      <th>rfc</th>
+      <th>situacion</th>
+      <th>definitivo_dof</th>
+      <th>fecha_contrato</th>
+      <th>post_definitivo</th>
+      <th>institucion</th>
+      <th>tipo_procedimiento</th>
+      <th>monto_mxn_millones</th>
+      <th>moneda_drc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FERROCLIN U&amp;Q SA DE CV</td>
+      <td>FUQ140426I3A</td>
+      <td>Definitivo</td>
+      <td>2026-03-13</td>
+      <td>2023-03-25</td>
+      <td>False</td>
+      <td>COMISION NACIONAL DEL AGUA</td>
+      <td>ADJUDICACIÓN DIRECTA POR LICITACIONES PÚBLICAS DESIERTAS</td>
+      <td>156.7</td>
+      <td>MXN</td>
+    </tr>
+    <tr>
+      <td>CONSTRUCTORA BARLE SA DE CV</td>
+      <td>CBA220225AL7</td>
+      <td>Definitivo</td>
+      <td>2025-12-12</td>
+      <td>2024-05-24</td>
+      <td>False</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>8.8</td>
+      <td>MXN</td>
+    </tr>
+    <tr>
+      <td>SERVICIOS DE INGENIERIA Y DE CONSTRUCCION BAUMAR SA DE CV</td>
+      <td>SIC1505128V4</td>
+      <td>Definitivo</td>
+      <td>2026-03-26</td>
+      <td>2023-05-22</td>
+      <td>False</td>
+      <td>INFRAESTRUCTURA, COMUNICACIONES Y TRANSPORTES</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>7.3</td>
+      <td>MXN</td>
+    </tr>
+    <tr>
+      <td>CONSTRUAGREGADOS HOPELCHEN SA DE CV</td>
+      <td>CHO170605TF6</td>
+      <td>Definitivo</td>
+      <td>2026-02-20</td>
+      <td>2023-08-11</td>
+      <td>False</td>
+      <td>SECRETARÍA DE DESARROLLO URBANO Y OBRAS PÚBLICAS</td>
+      <td>INVITACIÓN A CUANDO MENOS 3 PERSONAS POR MONTOS MÁXIMOS PARA EXCEPCIÓN</td>
+      <td>4.0</td>
+      <td>MXN</td>
+    </tr>
+    <tr>
+      <td>COMERCIO Y CONSTRUCCION DE TABASCO SA DE CV</td>
+      <td>CCT1808139U3</td>
+      <td>Definitivo</td>
+      <td>2025-12-12</td>
+      <td>2023-07-05</td>
+      <td>False</td>
+      <td>CENTRO</td>
+      <td>INVITACIÓN A CUANDO MENOS 3 PERSONAS POR MONTOS MÁXIMOS PARA EXCEPCIÓN</td>
+      <td>2.6</td>
+      <td>MXN</td>
+    </tr>
+    <tr>
+      <td>COMERCIALIZADORA ELISMAR SA DE CV</td>
+      <td>CEL190713FC1</td>
+      <td>Definitivo</td>
+      <td>2026-03-13</td>
+      <td>2023-07-14</td>
+      <td>False</td>
+      <td>COMISIÓN DEL AGUA DEL ESTADO DE DURANGO</td>
+      <td>INVITACIÓN A CUANDO MENOS 3 PERSONAS POR MONTOS MÁXIMOS PARA EXCEPCIÓN</td>
+      <td>1.8</td>
+      <td>MXN</td>
+    </tr>
+    <tr>
+      <td>PORTARE SERVICIOS Y SOLUCIONES SA DE CV</td>
+      <td>PSS1808234H4</td>
+      <td>Definitivo</td>
+      <td>2026-04-24</td>
+      <td>2023-10-13</td>
+      <td>False</td>
+      <td>FONDO NACIONAL PARA EL FOMENTO DE LAS ARTESANÍAS</td>
+      <td>ADJUDICACIÓN DIRECTA POR AUTORIZACIÓN DE OM O EQUIVALENTE</td>
+      <td>1.8</td>
+      <td>MXN</td>
+    </tr>
+    <tr>
+      <td>FERRECONSTRUCCIONES Y EDIFICACIONES TROYA SA DE CV</td>
+      <td>FET210608230</td>
+      <td>Definitivo</td>
+      <td>2026-04-30</td>
+      <td>2023-10-21</td>
+      <td>False</td>
+      <td>INSTITUTO DE SEGURIDAD Y SERVICIOS SOCIALES DE LOS TRABAJADORES DEL ESTADO</td>
+      <td>INVITACIÓN A CUANDO MENOS 3 PERSONAS POR CASO FORTUITO O FUERZA MAYOR</td>
+      <td>1.5</td>
+      <td>MXN</td>
+    </tr>
+    <tr>
+      <td>CONSTRUAGREGADOS HOPELCHEN SA DE CV</td>
+      <td>CHO170605TF6</td>
+      <td>Definitivo</td>
+      <td>2026-02-20</td>
+      <td>2023-04-01</td>
+      <td>False</td>
+      <td>MACUSPANA</td>
+      <td>INVITACIÓN A CUANDO MENOS 3 PERSONAS POR MONTOS MÁXIMOS PARA EXCEPCIÓN</td>
+      <td>1.2</td>
+      <td>MXN</td>
+    </tr>
+    <tr>
+      <td>CONSTRUCTORA BARLE SA DE CV</td>
+      <td>CBA220225AL7</td>
+      <td>Definitivo</td>
+      <td>2025-12-12</td>
+      <td>2024-05-24</td>
+      <td>False</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>1.1</td>
+      <td>MXN</td>
+    </tr>
+  </tbody>
+</table></div>
+<p class="caveat">Tier histórico (por nombre, verificar homonimia antes de citar): $923M MXN, 613 contratos, 304 empresas.</p>
+
+<h2>2 · Empresas jóvenes ganando contratos grandes</h2>
+<p>La fecha de constitución de una persona moral está codificada en su RFC
+(posiciones 4–9). Señal: empresa con &lt;1 año de vida ganando ≥$5M MXN.
+La vía repetida: adjudicación directa por «urgencia y eventualidad» en salud.
+<code>tipo_monto=techo_maximo</code> indica contrato abierto mín/máx: el monto es
+el techo contractual, no necesariamente lo ejercido.</p>
+<p class="caveat">Caso verificado en el anuncio oficial (2026-06-11): WHITEMED, S.A. de C.V.,
+constituida 2023-10-17, firmó a los 179 días el contrato 012NEF001I03224-039-00 con el IMSS
+(adjudicación directa AA-12-NEF-012NEF001-I-32-2024, genéricos 2024) por un mínimo garantizado
+de $404.3M y techo de $1,010.8M MXN sin impuestos, más un segundo contrato IMSS-Bienestar
+(mín $36.0M / máx $90.0M).</p>
+<div class="wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>proveedor</th>
+      <th>rfc</th>
+      <th>constituida</th>
+      <th>fecha_contrato</th>
+      <th>edad_dias</th>
+      <th>institucion</th>
+      <th>tipo_procedimiento</th>
+      <th>monto_mxn_millones</th>
+      <th>tipo_monto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>WHITEMED SA DE CV</td>
+      <td>WHI231017IC4</td>
+      <td>2023-10-17</td>
+      <td>2024-04-13</td>
+      <td>179</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR ADJUDICACIÓN A PROVEEDOR CON CONTRATO VIGENTE, BAJO LAS MISMAS CONDICIONES</td>
+      <td>1,010.8</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>BELOW THE LINE PRODIGY SA DE CV</td>
+      <td>BLP240515311</td>
+      <td>2024-05-15</td>
+      <td>2024-10-24</td>
+      <td>162</td>
+      <td>SECRETARIA DE MARINA</td>
+      <td>ADJUDICACIÓN DIRECTA POR URGENCIA Y EVENTUALIDAD</td>
+      <td>134.2</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>RENOVACION MEDICA INTEGRAL REMEIN SA DE CV</td>
+      <td>RMI240614P65</td>
+      <td>2024-06-14</td>
+      <td>2025-01-01</td>
+      <td>201</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>113.3</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>ARMOT SEGURIDAD PRIVADA Y SERVICIOS INSTITUCIONALES SA DE CV</td>
+      <td>ASP220621KC5</td>
+      <td>2022-06-21</td>
+      <td>2023-05-18</td>
+      <td>331</td>
+      <td>INSTITUTO DE SEGURIDAD Y SERVICIOS SOCIALES DE LOS TRABAJADORES DEL ESTADO</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>112.6</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>MI PEQUEÑO COLIBRI SC</td>
+      <td>PCO2310096P1</td>
+      <td>2023-10-09</td>
+      <td>2024-01-01</td>
+      <td>84</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>85.9</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>GRUPO GLOBAL SHAPALATA S DE RL DE CV</td>
+      <td>GGS2303217D5</td>
+      <td>2023-03-21</td>
+      <td>2023-07-10</td>
+      <td>111</td>
+      <td>INFRAESTRUCTURA, COMUNICACIONES Y TRANSPORTES</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>79.4</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>CARINT SA DE CV</td>
+      <td>CAR2208226S8</td>
+      <td>2022-08-22</td>
+      <td>2023-07-18</td>
+      <td>330</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>78.3</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>INNOVA MEDIC CROSSET SA DE CV</td>
+      <td>IMC221214FWA</td>
+      <td>2022-12-14</td>
+      <td>2023-09-18</td>
+      <td>278</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR URGENCIA Y EVENTUALIDAD</td>
+      <td>74.7</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>COLEGIO TERRAL SC</td>
+      <td>CTE230601GL9</td>
+      <td>2023-06-01</td>
+      <td>2024-01-01</td>
+      <td>214</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>70.6</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>INNOVA MEDIC CROSSET SA DE CV</td>
+      <td>IMC221214FWA</td>
+      <td>2022-12-14</td>
+      <td>2023-07-14</td>
+      <td>212</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR CASO FORTUITO O FUERZA MAYOR</td>
+      <td>69.3</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>KINDERECKE SC</td>
+      <td>KIN221017IK3</td>
+      <td>2022-10-17</td>
+      <td>2023-03-01</td>
+      <td>135</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR LICITACIONES PÚBLICAS DESIERTAS</td>
+      <td>68.5</td>
+      <td>ejercido</td>
+    </tr>
+    <tr>
+      <td>ELEMENTCO S A P I DE CV</td>
+      <td>ELE221209E71</td>
+      <td>2022-12-09</td>
+      <td>2023-10-25</td>
+      <td>320</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR URGENCIA Y EVENTUALIDAD</td>
+      <td>65.6</td>
+      <td>ejercido</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2>3 · Concentración de adjudicaciones directas</h2>
+<p>Instituciones por % del gasto vía adjudicación directa, y dependencias de un
+solo proveedor. El contexto importa: medicamentos de patente y entidades
+estatales tienen vías legales de excepción (columna <code>contexto</code> en el CSV).</p>
+<div class="wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>institucion</th>
+      <th>contratos</th>
+      <th>pct_directas_n</th>
+      <th>monto_mxn_millones</th>
+      <th>pct_directas_monto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>INSTITUTO DE SALUD DEL ESTADO DE MÉXICO</td>
+      <td>122</td>
+      <td>97.5</td>
+      <td>3,423.0</td>
+      <td>99.8</td>
+    </tr>
+    <tr>
+      <td>INSTITUTO DE SALUD PUBLICA DEL ESTADO DE GUANAJUATO</td>
+      <td>546</td>
+      <td>99.1</td>
+      <td>1,510.7</td>
+      <td>99.7</td>
+    </tr>
+    <tr>
+      <td>IMPRESORA Y ENCUADERNADORA PROGRESO, S.A. DE C.V.</td>
+      <td>1509</td>
+      <td>97.4</td>
+      <td>1,505.5</td>
+      <td>98.5</td>
+    </tr>
+    <tr>
+      <td>TALLERES GRAFICOS DE MEXICO</td>
+      <td>979</td>
+      <td>98.3</td>
+      <td>2,482.1</td>
+      <td>98.4</td>
+    </tr>
+    <tr>
+      <td>XE-IPN CANAL 11</td>
+      <td>8159</td>
+      <td>99.1</td>
+      <td>799.8</td>
+      <td>93.5</td>
+    </tr>
+    <tr>
+      <td>LABORATORIOS DE BIOLÓGICOS Y REACTIVOS DE MÉXICO, S.A. DE C.V.</td>
+      <td>237</td>
+      <td>62.0</td>
+      <td>5,769.9</td>
+      <td>91.0</td>
+    </tr>
+    <tr>
+      <td>FONATUR INFRAESTRUCTURA, S.A. DE C.V.</td>
+      <td>380</td>
+      <td>87.9</td>
+      <td>398.8</td>
+      <td>89.6</td>
+    </tr>
+    <tr>
+      <td>BANCO NACIONAL DE COMERCIO EXTERIOR, S.N.C.</td>
+      <td>381</td>
+      <td>94.5</td>
+      <td>1,549.9</td>
+      <td>84.8</td>
+    </tr>
+    <tr>
+      <td>CENTRO DE INGENIERIA Y DESARROLLO INDUSTRIAL</td>
+      <td>494</td>
+      <td>92.1</td>
+      <td>160.4</td>
+      <td>84.1</td>
+    </tr>
+    <tr>
+      <td>FONDO NACIONAL DE FOMENTO AL TURISMO</td>
+      <td>285</td>
+      <td>47.0</td>
+      <td>8,132.1</td>
+      <td>82.9</td>
+    </tr>
+    <tr>
+      <td>INSTITUTO DE INVESTIGACIONES "DR. JOSE MARIA LUIS MORA"</td>
+      <td>529</td>
+      <td>94.3</td>
+      <td>108.7</td>
+      <td>82.0</td>
+    </tr>
+    <tr>
+      <td>TELEVISIÓN METROPOLITANA, S.A. DE C.V.</td>
+      <td>481</td>
+      <td>91.5</td>
+      <td>147.0</td>
+      <td>81.9</td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>institucion</th>
+      <th>proveedor</th>
+      <th>monto_directas_mxn_m</th>
+      <th>n_directas</th>
+      <th>pct_del_gasto_directo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BANCO DEL BIENESTAR S.N.C., I.B.D.</td>
+      <td>TRIARA.COM SA DE CV</td>
+      <td>4,449.9</td>
+      <td>1</td>
+      <td>74.0</td>
+    </tr>
+    <tr>
+      <td>SECRETARIA DE BIENESTAR</td>
+      <td>INTEGRA ARRENDA SA DE CV SOFOM ENR</td>
+      <td>3,641.6</td>
+      <td>1</td>
+      <td>70.1</td>
+    </tr>
+    <tr>
+      <td>FONATUR TREN MAYA, S.A. DE C.V.</td>
+      <td>OPERADORA CICSA SA DE CV</td>
+      <td>3,352.3</td>
+      <td>1</td>
+      <td>85.7</td>
+    </tr>
+    <tr>
+      <td>LABORATORIOS DE BIOLÓGICOS Y REACTIVOS DE MÉXICO, S.A. DE C.V.</td>
+      <td>ALMACENAJE Y DISTRIBUCION AVIOR SA DE CV</td>
+      <td>2,820.7</td>
+      <td>3</td>
+      <td>53.7</td>
+    </tr>
+    <tr>
+      <td>NACIONAL FINANCIERA, S.N.C.</td>
+      <td>PROVEEDORA DE SERVICIOS EMPRESARIALES Y SOLUCIONES OPTIMAS SA DE</td>
+      <td>1,339.0</td>
+      <td>1</td>
+      <td>62.4</td>
+    </tr>
+    <tr>
+      <td>FERROCARRIL DEL ISTMO DE TEHUANTEPEC, S.A. DE C.V.</td>
+      <td>DLG INDUSTRIAS SA DE CV</td>
+      <td>1,288.8</td>
+      <td>4</td>
+      <td>63.0</td>
+    </tr>
+    <tr>
+      <td>SERVICIO DE ADMINISTRACION TRIBUTARIA</td>
+      <td>IBM DE MEXICO COMERCIALIZACION Y SERVICIOS S DE RL DE CV</td>
+      <td>1,199.0</td>
+      <td>1</td>
+      <td>80.8</td>
+    </tr>
+    <tr>
+      <td>BANCO NACIONAL DE COMERCIO EXTERIOR, S.N.C.</td>
+      <td>PROVEEDORA DE SERVICIOS EMPRESARIALES Y SOLUCIONES OPTIMAS SA DE</td>
+      <td>790.4</td>
+      <td>1</td>
+      <td>60.2</td>
+    </tr>
+    <tr>
+      <td>PATRONATO DE OBRAS E INSTALACIONES DEL INSTITUTO POLITECNICO NACIONAL</td>
+      <td>PYCSUR SA DE CV</td>
+      <td>724.1</td>
+      <td>1</td>
+      <td>97.5</td>
+    </tr>
+    <tr>
+      <td>CENTRO NACIONAL DE CONTROL DEL GAS NATURAL</td>
+      <td>EPSILON.NET SA DE CV</td>
+      <td>709.3</td>
+      <td>1</td>
+      <td>58.6</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2>5 · Contratos a proveedores inhabilitados por la SFP</h2>
+<p>Cruce exacto por RFC contra el Directorio de Proveedores y Contratistas
+Sancionados de la SFP (con periodo de inhabilitación). Señal fuerte: contrato
+firmado <strong>mientras la empresa estaba inhabilitada</strong> para contratar
+con el gobierno. 15 casos detectados 2023–2025.</p>
+<div class="wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>proveedor</th>
+      <th>rfc</th>
+      <th>inhabilitado_desde</th>
+      <th>hasta</th>
+      <th>fecha_contrato</th>
+      <th>institucion</th>
+      <th>tipo_procedimiento</th>
+      <th>monto_mxn_millones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MEDICA SUR S A B DE C V</td>
+      <td>MSU820125T58</td>
+      <td>2015-02-26</td>
+      <td>NaN</td>
+      <td>2024-07-20</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>50.7</td>
+    </tr>
+    <tr>
+      <td>MEDICA SUR S A B DE C V</td>
+      <td>MSU820125T58</td>
+      <td>2015-02-26</td>
+      <td>NaN</td>
+      <td>2025-08-28</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>13.7</td>
+    </tr>
+    <tr>
+      <td>CONSTRUCCION Y ASESORIA EN OBRAS Y SERVICIOS SA DE CV</td>
+      <td>CAO070122P44</td>
+      <td>2023-05-04</td>
+      <td>2024-05-03</td>
+      <td>2023-09-11</td>
+      <td>INFRAESTRUCTURA, COMUNICACIONES Y TRANSPORTES</td>
+      <td>INVITACIÓN A CUANDO MENOS 3 PERSONAS POR MONTOS MÁXIMOS PARA EXCEPCIÓN</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <td>CONSTRUCCION Y ASESORIA EN OBRAS Y SERVICIOS SA DE CV</td>
+      <td>CAO070122P44</td>
+      <td>2023-05-04</td>
+      <td>2024-05-03</td>
+      <td>2023-11-16</td>
+      <td>CAMINOS Y PUENTES FEDERALES DE INGRESOS Y SERVICIOS CONEXOS</td>
+      <td>LICITACIÓN PÚBLICA</td>
+      <td>9.4</td>
+    </tr>
+    <tr>
+      <td>MEDICA SUR S A B DE C V</td>
+      <td>MSU820125T58</td>
+      <td>2015-02-26</td>
+      <td>NaN</td>
+      <td>2024-02-12</td>
+      <td>INSTITUTO DE SEGURIDAD Y SERVICIOS SOCIALES DE LOS TRABAJADORES DEL ESTADO</td>
+      <td>ADJUDICACIÓN DIRECTA POR PATENTES, LICENCIAS, OFERENTE ÚNICO U OBRAS DE ARTE</td>
+      <td>3.9</td>
+    </tr>
+    <tr>
+      <td>LOGISTICA MEDICA DE OCCIDENTE S DE RL DE CV</td>
+      <td>LMO111129RJ7</td>
+      <td>2022-12-09</td>
+      <td>2024-06-09</td>
+      <td>2023-02-17</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR URGENCIA Y EVENTUALIDAD</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <td>LOGISTICA MEDICA DE OCCIDENTE S DE RL DE CV</td>
+      <td>LMO111129RJ7</td>
+      <td>2022-12-09</td>
+      <td>2024-06-09</td>
+      <td>2023-02-17</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR URGENCIA Y EVENTUALIDAD</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>ANSOF COMERCIALIZADORES SA DE CV</td>
+      <td>ACO150612873</td>
+      <td>2025-05-14</td>
+      <td>2026-08-14</td>
+      <td>2025-06-02</td>
+      <td>SERVICIOS DE SALUD DEL INSTITUTO MEXICANO DEL SEGURO SOCIAL PARA EL BIENESTAR</td>
+      <td>ADJUDICACIÓN DIRECTA POR ADJUDICACIÓN A PROVEEDOR CON CONTRATO VIGENTE, BAJO LAS MISMAS CONDICIONES</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>LOGISTICA MEDICA DE OCCIDENTE S DE RL DE CV</td>
+      <td>LMO111129RJ7</td>
+      <td>2022-12-09</td>
+      <td>2024-06-09</td>
+      <td>2023-02-17</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR URGENCIA Y EVENTUALIDAD</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>ALBOREA TECNOLOGIA SA DE CV</td>
+      <td>ATE160721KI7</td>
+      <td>2023-09-26</td>
+      <td>2025-03-26</td>
+      <td>2023-09-28</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR MONTOS MÁXIMOS POR EXCEPCIÓN</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>ALBOREA TECNOLOGIA SA DE CV</td>
+      <td>ATE160721KI7</td>
+      <td>2023-09-26</td>
+      <td>2025-03-26</td>
+      <td>2023-09-28</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR MONTOS MÁXIMOS POR EXCEPCIÓN</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>CENTRO DE COMERCIALIZACION Y FABRICACION DE MOBILIARIO Y EQUIPO</td>
+      <td>CCF180213TK5</td>
+      <td>2022-12-23</td>
+      <td>2024-06-23</td>
+      <td>2023-05-19</td>
+      <td>INSTITUTO MEXICANO DEL SEGURO SOCIAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR MONTOS MÁXIMOS POR EXCEPCIÓN</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>ZELAZOR AIROT SA DE CV</td>
+      <td>ZAI970506M2A</td>
+      <td>2023-04-28</td>
+      <td>2023-07-28</td>
+      <td>2023-05-03</td>
+      <td>SECRETARIA DE LA DEFENSA NACIONAL</td>
+      <td>ADJUDICACIÓN DIRECTA POR MONTOS MÁXIMOS POR EXCEPCIÓN</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>ANSOF COMERCIALIZADORES SA DE CV</td>
+      <td>ACO150612873</td>
+      <td>2025-05-14</td>
+      <td>2026-08-14</td>
+      <td>2025-05-26</td>
+      <td>SERVICIOS DE SALUD DEL INSTITUTO MEXICANO DEL SEGURO SOCIAL PARA EL BIENESTAR</td>
+      <td>ADJUDICACIÓN DIRECTA POR ADJUDICACIÓN A PROVEEDOR CON CONTRATO VIGENTE, BAJO LAS MISMAS CONDICIONES</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>LABORATORIOS BYM SA DE CV</td>
+      <td>LBY0701173R0</td>
+      <td>2023-05-30</td>
+      <td>2025-11-30</td>
+      <td>2024-01-01</td>
+      <td>INSTITUTO NACIONAL DE REHABILITACIÓN LUIS GUILLERMO IBARRA IBARRA</td>
+      <td>ADJUDICACIÓN DIRECTA POR PATENTES, LICENCIAS, OFERENTE ÚNICO U OBRAS DE ARTE</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table></div>
+<p class="caveat">Inhabilitaciones sin fecha de fin (registro abierto) requieren
+verificación: pueden reflejar sanciones antiguas o artefactos del registro.</p>
+
+<h2>4 · Conformidad Benford de montos por institución</h2>
+<p>Primer dígito de los montos vs. ley de Benford (MAD, bandas de Nigrini;
+χ² df=8 de referencia). La cultura de montos redondos también rompe Benford:
+esta señal se cruza con las anteriores, no se publica sola. Caso ilustrativo:
+exceso de montos que inician con 9 — consistente con fraccionar justo debajo
+de umbrales de aprobación.</p>
+<div class="wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>institucion</th>
+      <th>n_contratos</th>
+      <th>mad</th>
+      <th>banda_nigrini</th>
+      <th>chi2</th>
+      <th>p_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FONDO NACIONAL PARA EL FOMENTO DE LAS ARTESANÍAS</td>
+      <td>437</td>
+      <td>0.1</td>
+      <td>NO CONFORME</td>
+      <td>312.3</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>INSTITUTO DE ADMINISTRACION Y AVALUOS DE BIENES NACIONALES</td>
+      <td>10251</td>
+      <td>0.1</td>
+      <td>NO CONFORME</td>
+      <td>6,618.4</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>SISTEMA PUBLICO DE RADIODIFUSION DEL ESTADO MEXICANO</td>
+      <td>1675</td>
+      <td>0.1</td>
+      <td>NO CONFORME</td>
+      <td>752.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>COMISION NACIONAL DE CULTURA FISICA Y DEPORTE</td>
+      <td>797</td>
+      <td>0.1</td>
+      <td>NO CONFORME</td>
+      <td>374.3</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>INSTITUTO MEXICANO DE INVESTIGACIÓN EN PESCA Y ACUACULTURA SUSTENTABLES</td>
+      <td>473</td>
+      <td>0.1</td>
+      <td>NO CONFORME</td>
+      <td>163.3</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>COMISION NACIONAL FORESTAL</td>
+      <td>2148</td>
+      <td>0.1</td>
+      <td>NO CONFORME</td>
+      <td>617.9</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>XE-IPN CANAL 11</td>
+      <td>8119</td>
+      <td>0.1</td>
+      <td>NO CONFORME</td>
+      <td>2,352.4</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>GRUPO AEROPORTUARIO DE LA CIUDAD DE MÉXICO, S.A. DE C.V.</td>
+      <td>331</td>
+      <td>0.0</td>
+      <td>NO CONFORME</td>
+      <td>90.4</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>FIDEICOMISO PARA LA CINETECA NACIONAL</td>
+      <td>1420</td>
+      <td>0.0</td>
+      <td>NO CONFORME</td>
+      <td>315.7</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>CENTRO DE INGENIERIA Y DESARROLLO INDUSTRIAL</td>
+      <td>391</td>
+      <td>0.0</td>
+      <td>NO CONFORME</td>
+      <td>76.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>INSTITUTO NACIONAL DE ANTROPOLOGIA E HISTORIA</td>
+      <td>2046</td>
+      <td>0.0</td>
+      <td>NO CONFORME</td>
+      <td>405.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>INSTITUTO MEXICANO DE CINEMATOGRAFIA</td>
+      <td>554</td>
+      <td>0.0</td>
+      <td>NO CONFORME</td>
+      <td>89.8</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2>Método, fuentes y límites</h2>
+<ul class="caveat">
+<li>Fuentes oficiales con cadena de evidencia (URL + timestamp + sha256 en <code>data/raw/MANIFEST.tsv</code>); pipeline reproducible (<code>scripts/update.sh</code>).</li>
+<li>Montos en MXN; «$XM» = millones de pesos. Otras monedas se reportan por separado en los CSV.</li>
+<li>El listado 69-B es un acto administrativo del SAT, impugnable; aquí se reportan hechos publicados, no conclusiones legales.</li>
+<li>Cobertura federal (ComprasMX). Estatal/municipal: pendiente — la disolución del INAI (2025) degradó el acceso vía PNT.</li>
+<li>Datos del año en curso (2026): el CSV anual aún no se publica; la actualización es anual para contratos y mensual para 69-B.</li>
+</ul>
+</body></html>
