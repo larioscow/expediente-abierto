@@ -20,6 +20,8 @@ solo localhost; nada de esto se publica en el sitio.
   presupuesto de detalle (`max_detail`).
 - Corridas manuales con un clic: poll ahora, actualización completa,
   reconstruir el sitio.
+- Registrar una denuncia presentada sin salir del panel: subir el acuse,
+  capturar el folio, y que el sitio público lo refleje solo.
 - Ver de un vistazo: estado de cada agente programado, última corrida y su
   resultado, próxima corrida estimada, frescura de cada fuente (MANIFEST),
   último build del sitio y las últimas 10 alertas.
@@ -101,6 +103,28 @@ Las corridas encimadas las evita el candado `mkdir` que ya tiene
   deshabilitan y el panel muestra qué está corriendo.
 - El panel muestra las últimas ~20 líneas del log de la corrida más reciente.
 
+### Registro de denuncia presentada
+
+Acción `registrar-acuse` en la fila de cada caso (y una variante suelta para
+expedientes consolidados): formulario con folio + archivo PDF del acuse.
+
+Al enviarse, `operacion.py`:
+
+1. Valida el folio (`^\d{4,6}-\d{4}$`, p. ej. `83016-2026`) y que el archivo
+   sea PDF; rechaza con mensaje si no.
+2. Guarda el archivo como
+   `findings/denuncias/acuses/acuse_<folio>.pdf` — los acuses siguen siendo
+   la única fuente de verdad de los folios publicados; el export ya
+   regenera `folios_publicos.json` a partir de ellos.
+3. Marca el caso como `denunciado` en el `CaseStore` con el folio en la nota
+   (mismo mecanismo de estados que ya existe).
+4. Dispara en segundo plano la corrida `rebuild-sitio` (export + build), de
+   modo que la página /denuncias del sitio público refleje el folio nuevo sin
+   pasos adicionales.
+
+Los acuses contienen datos personales: nunca se copian a `web/` ni a git
+(solo el folio viaja, vía `folios_publicos.json`).
+
 ### Panel de estado (solo lectura)
 
 | Dato | Fuente |
@@ -130,5 +154,8 @@ En `tests/test_operacion.py`, con `launchctl` falso inyectado:
 - `aplicar()`: secuencia bootout/bootstrap correcta; pausa = solo bootout.
 - `estado_agente()`: parseo de salidas reales de `launchctl print` (fixtures).
 - `realtime/poll.py`: toma defaults de `operacion.json`; la CLI gana.
+- Registro de acuse: folio inválido rechazado, PDF guardado con el nombre
+  canónico, estado del caso actualizado, rebuild disparado (subproceso
+  inyectado); un archivo no-PDF se rechaza.
 - Dashboard: las rutas POST nuevas pasan por `origen_permitido` (mismo patrón
   de tests que ya existe para estados de caso).
