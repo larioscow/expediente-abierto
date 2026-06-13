@@ -1,14 +1,13 @@
-# Refresco diario de datos en la nube: descarga fuentes -> detectores ->
-# commit de findings/ actualizados. NO despliega (eso lo hace publish.yml o
-# la Mac); solo mantiene los hallazgos del repo al día.
+# Refresco de datos en la nube: descarga fuentes -> detectores -> commit de
+# findings/ actualizados. NO despliega (eso lo hace publish.yml o la Mac); solo
+# mantiene los hallazgos del repo al día.
 #
-# DORMANTE hasta que el repo tenga remoto en GitHub. Primer run con
-# supervisión: la captura scrapling (SFP) puede fallar desde IPs de
-# datacenter — por eso es continue-on-error y check_freshness lo reporta.
+# Solo manual (workflow_dispatch): el refresco diario lo hace la Mac vía
+# launchd, y la captura scrapling (SFP) puede fallar desde IPs de datacenter,
+# así que el primer run en la nube va con supervisión. Reactiva el cron cuando
+# lo hayas validado.
 name: update-data
 on:
-  schedule:
-    - cron: "30 13 * * *"   # 07:30 CDMX
   workflow_dispatch:
 
 jobs:

@@ -14,7 +14,8 @@ findings/denuncias/*
 !findings/denuncias/folios_publicos.json
 !findings/denuncias/denuncias_publicas.json
 
-# basura del SO / cachés de herramientas / capturas sueltas en la raíz
+# config local de herramientas / basura del SO / capturas sueltas en la raíz
+.claude/
 .DS_Store
 .desloppify/
 /*.jpeg
