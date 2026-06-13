@@ -1,147 +1,134 @@
-# Expediente Abierto
+# Expediente Abierto — el motor
 
-Detector de corrupción en las compras del gobierno de México. Publica hechos
-verificables con fuente oficial, nunca acusaciones. Cobertura federal
-(ComprasMX) y de los 32 estados (Plataforma Nacional de Transparencia).
+Motor de detección detrás de <https://expediente-abierto-six.vercel.app>. Cruza
+las compras públicas de México contra registros oficiales de sanción y fraude,
+y produce los hallazgos que alimentan el sitio. Cobertura federal (ComprasMX) y
+de los 32 estados (Plataforma Nacional de Transparencia).
 
-Sitio: <https://expediente-abierto-six.vercel.app> · Nombre clave del repo:
-`mx-corruption-detector`.
-
-> **Cómo está ordenado este documento.** Sigue el método de los *Elementos* de
-> Euclides: primero las **definiciones**, luego los **postulados** (los
-> supuestos, puestos a la vista antes de cualquier afirmación), luego las
-> **nociones comunes** (las reglas legales que se citan una y otra vez), y al
-> final las **proposiciones** (los detectores), cada una apoyada en lo anterior
-> y citando la regla que la justifica. Nada se afirma; todo se demuestra y se
-> cita.
+> **Alcance de este README.** Documenta el *motor*, no el dominio. Qué es una
+> facturera, qué dice el art. 50 de la LAASSP o por qué un contrato es señal de
+> riesgo se explican en el sitio; aquí solo está la máquina que los detecta:
+> capas, módulos, algoritmos y dependencias.
+>
+> **Cómo está ordenado.** Sigue el método de los *Elementos* de Euclides, pero
+> en clave técnica: **definiciones** (el vocabulario del código) → **postulados**
+> (los supuestos de ingeniería) → **nociones comunes** (los primitivos
+> compartidos que todo detector reusa) → **proposiciones** (los detectores, cada
+> uno sobre los anteriores). Nada se afirma sin nombrar la dependencia que lo
+> sostiene.
 
 ## Estado
 
 Operativo: 12 detectores de lote + riesgo compuesto por proveedor (ensamble) +
-backtest de precisión con intervalos de confianza + monitor casi en tiempo
-real + flujo de casos (verificación → denuncia). El 2026-06-11 se presentaron
-las primeras 14 denuncias formales en SIDEC a partir de hallazgos del pipeline
-(contratos firmados durante una inhabilitación vigente, cruce por RFC).
+backtest de precisión con intervalos de confianza + monitor casi en tiempo real
++ flujo de casos (triaje → denuncia). El 2026-06-11 el pipeline produjo las
+primeras 14 denuncias formales presentadas en SIDEC.
 
 ---
 
-## 1. Definiciones
+## 1. Definiciones (el vocabulario del código)
 
-Los términos que usa todo lo demás. Ninguno se emplea antes de quedar aquí
-definido.
+Los términos técnicos que usa el resto del documento.
 
-| Término | Definición |
+| Término | Qué es en el código |
 |---|---|
-| **EFOS / facturera** | Empresa que el SAT incluye en su lista del art. 69-B del Código Fiscal por facturar operaciones que no existen. Cuatro situaciones: *presunto*, *definitivo* (confirmado), *desvirtuado* y *sentencia favorable* (aclarados). |
-| **Inhabilitado** | Proveedor al que la autoridad le prohibió contratar con el gobierno por un periodo; consta en el directorio de sancionados de la SFP o en una circular del DOF. |
-| **Adjudicación directa** | Contrato otorgado a un solo proveedor sin licitación. La ley la admite como excepción, no como vía ordinaria. |
-| **Convenio modificatorio** | Documento que aumenta el monto o el plazo de un contrato ya firmado. |
-| **Colusión** | Empresas que aparentan competir pero se reparten los contratos de una misma oficina (rotación, anillos de constitución, fraccionamiento el mismo día). |
-| **Señal (bandera)** | Una regla con nombre y peso que un contrato dispara. Un filtro para revisar, no una acusación. |
-| **Hallazgo** | El resultado de un detector: una tabla en `findings/` con nombre, monto y fuente. |
-| **Lote / tiempo real** | *Lote* = cruces históricos de alta confianza sobre CSV oficiales. *Tiempo real* = screen rápido sobre las compras que se publican en vivo. |
-| **PNT / SIPOT** | Plataforma Nacional de Transparencia: la única ruta común a las contrataciones de los 32 estados y municipios. |
+| **Capa de lote** | Cruces históricos de alta confianza sobre CSV oficiales descargados. Determinista y reproducible. `detectors/`, orquestado por `scripts/update.sh`. |
+| **Capa de tiempo real** | Screen rápido sobre las compras que ComprasMX publica en vivo, capturadas con scrapling. `realtime/`, orquestado por `scripts/realtime_poll.sh`. |
+| **Detector** | Un módulo `detectors/dNN_*.py` que lee la vista de contratos, aplica una prueba y escribe un `findings/fNN_*.csv`. |
+| **Hallazgo** | El artefacto de salida de un detector: un CSV en `findings/` con nombre, monto y fuente. |
+| **Índice** | Estructura en memoria para cruzar en vivo: `efos_index`, `sfp_index`, `dof_index` (nombre/RFC → situación). |
+| **Manifiesto** | `data/raw/MANIFEST.tsv`: URL, timestamp y sha256 de cada archivo bajado. La cadena de evidencia del motor. |
+| **Ensamble** | Riesgo compuesto por proveedor (`d09`): combina varias señales independientes en un score. |
+| **Backtest / lift** | Mide cada señal contra sanciones posteriores. *Lift* = cuántas veces más probable es la sanción dado que la señal disparó. |
+| **Frescura** | Edad de cada fuente contra su umbral (`check_freshness.py` → `findings/freshness.json`). |
 
-## 2. Postulados (los supuestos, a la vista)
+## 2. Postulados (los supuestos de ingeniería)
 
-Lo que el sistema da por sentado, declarado antes de cualquier hallazgo.
+Lo que el motor da por sentado, declarado antes de cualquier detector.
 
-1. **Todo se construye sobre servicios oficiales que ya existen; no creamos
-   datos.** Cada fuente se registra en `data/raw/MANIFEST.tsv` (URL, timestamp,
-   sha256) como cadena de evidencia.
-2. **El puntaje automático es un filtro, no un veredicto.** Toda señal exige
-   verificación humana antes de publicarse.
-3. **Un humano denuncia.** La herramienta tría, puntúa y redacta el documento;
-   nunca presenta nada ante una autoridad.
-4. **Cruce exacto por RFC sobre coincidencia difusa siempre que se pueda.** El
-   feed en vivo solo expone el *nombre* del proveedor, no su RFC, así que esos
-   cruces quedan marcados como *por verificar*; el cruce por RFC corre en el lote.
-5. **La ausencia de un dato se reporta, nunca se silencia.**
-   `scripts/check_freshness.py` alarma si una fuente envejece más allá de su
-   umbral (`findings/freshness.json`).
+1. **Las fuentes son servicios oficiales externos; el motor no crea datos.** Cada
+   archivo queda en el manifiesto con su sha256.
+2. **La descarga es condicional e idempotente.** `If-Modified-Since`: un 304 no
+   vuelve a bajar ~470 MB. El scraping estatal (PNT) es reanudable con escritura
+   atómica.
+3. **Cruce exacto por RFC sobre coincidencia difusa siempre que se pueda.** El
+   feed en vivo solo expone el nombre del proveedor, así que esos cruces se
+   etiquetan `needs_verification`; el cruce por RFC corre en el lote.
+4. **El puntaje es un filtro, no un veredicto.** Toda señal exige verificación
+   humana antes de publicarse, y la herramienta nunca presenta una denuncia.
+5. **La ausencia de un dato se reporta, nunca se silencia** (frescura + manifiesto).
+6. **scrapling se monta en la autenticación existente del portal** (`capture_xhr`):
+   maneja la SPA real y captura las respuestas que la app firma, en lugar de
+   romper sus tokens anti-bot.
 
-### Fuentes (los postulados, una por una)
+### Inventario de fuentes (de dónde y cómo se obtienen)
 
-- **ComprasMX / CompraNet** — contratos federales. CSV anual (lote) + API en vivo
-  del portal capturada vía scrapling (tiempo real).
-- **SAT, listado art. 69-B CFF** — empresas que facturan operaciones inexistentes
-  (presuntos, desvirtuados, definitivos, sentencia favorable).
-- **SFP, Directorio de Proveedores y Contratistas Sancionados** — inhabilitados
-  con RFC y periodo de inhabilitación (API del portal vía scrapling).
-- **Plataforma Nacional de Transparencia (PNT / SIPOT)** — contrataciones de los
-  32 estados y municipios (obligación art. 70 fr. XXVIII de la LGTAIP).
-- **Diario Oficial de la Federación (DOF)** — circulares de inhabilitación, vía su
-  API abierto. Alerta temprana: la inhabilitación surte efectos al publicarse,
-  días antes de aparecer en el directorio.
-- **CompraNet histórico 2010–2023** — archivo consolidado (datos.gob.mx / ATDT).
-- **CFE, contratos adjudicados** — dataset oficial (datos.gob.mx / ATDT). CFE y
-  Pemex contratan fuera de ComprasMX; este dataset cubre solo una fracción del
-  volumen real.
+| Fuente | Qué aporta | Acceso |
+|---|---|---|
+| ComprasMX / CompraNet | contratos federales | CSV anual (lote) + API del portal vía scrapling (vivo) |
+| SAT, listado 69-B | lista de EFOS | descarga oficial |
+| SFP, directorio de sancionados | inhabilitados con RFC y periodo | API del portal vía scrapling |
+| PNT / SIPOT | contrataciones de los 32 estados | scrapling (Cloudflare Turnstile) + export CSV por sujeto obligado |
+| DOF | circulares de inhabilitación (alerta temprana) | API abierto |
+| CompraNet histórico 2010–2023 | archivo consolidado | datos.gob.mx / ATDT |
+| CFE | contratos adjudicados (cobertura parcial) | datos.gob.mx / ATDT |
 
-## 3. Nociones comunes (las reglas que se citan)
+## 3. Nociones comunes (los primitivos compartidos)
 
-Las reglas legales que las proposiciones invocan, igual que Euclides cita una
-noción común en cada paso de una demostración.
+`shared/` reúne lo que todo detector cita, igual que Euclides invoca una noción
+común en cada paso. Sin dependencias externas, probado en lockstep en `tests/`.
 
-| Regla | Qué fija |
+| Módulo | Qué provee |
 |---|---|
-| **CFF art. 69-B** | La lista del SAT de operaciones simuladas (EFOS). |
-| **LAASSP art. 50** | Prohíbe dar contratos a una empresa inhabilitada. |
-| **LGRA art. 59** | Sanciona al servidor público que autoriza ese contrato. |
-| **LAASSP art. 52 / LOPSRM art. 59** | Tope de un convenio: +20 % en adquisiciones, +25 % en obra. |
-| **LAASSP art. 32** | Plazo de una licitación pública: ≥15 días entre convocatoria y apertura (reducible a ≥10 con justificación). |
-| **LAASSP arts. 1 y 41** | La adjudicación directa es una excepción acotada, no la regla. |
-| **LGTAIP art. 70 fr. XXVIII** | Obliga a publicar las contrataciones: la ruta de los datos estatales. |
+| `shared/estadistica.py` | intervalo de Wilson, Fisher exacto de una cola, Benford 1.er/2.º dígito y Z de Nigrini, control de FDR (Benjamini-Hochberg), cola binomial |
+| `shared/normalizacion.py` | normalización de razón social para el cruce difuso por nombre |
+| `shared/fechas.py` | parseo de fechas y cálculo de ventanas (p. ej. firma dentro de una inhabilitación) |
+| `shared/manifiesto.py` | registro de evidencia (URL, timestamp, sha256) |
+| `shared/esquemas.py`, `shared/ramos.py` | esquemas de columnas y catálogo de ramos/dependencias |
+
+Regla transversal: un *lift* sin intervalo es media verdad. Cada señal
+predictiva se publica con su IC de Wilson y su p de Fisher.
 
 ## 4. Proposiciones (los detectores)
 
-Cada detector se apoya en las definiciones y las nociones comunes anteriores, y
-va de lo más cierto (cruce exacto por RFC) a lo más inferido (ensamble,
-patrones estadísticos).
+Cada detector se apoya en los primitivos y las fuentes anteriores, y va de lo
+más cierto (cruce exacto por RFC) a lo más inferido (ensamble, patrones).
 
-| # | Señal | Regla / base |
+| # | Detección | Base técnica / dependencias |
 |---|---|---|
-| 01 | Contratos a empresas 69-B, 2023–2025 (cruce exacto por RFC) | CFF 69-B |
-| 01h | Contratos a empresas 69-B, 2010–2023 (nombre normalizado, menor confianza) | CFF 69-B |
-| 02 | Concentración de adjudicaciones directas (proveedor / institución / dependencia) | LAASSP 1 y 41 |
-| 03 | Conformidad Benford de montos por institución (MAD Nigrini 1.er y 2.º dígito, Z, χ², control de FDR) | estadística |
-| 04 | Empresas de reciente creación ganando contratos grandes (edad derivada del RFC) | LAASSP 1 y 41 |
-| 05 | Contratos a inhabilitados por la SFP, firmados durante la inhabilitación (cruce por RFC) | LAASSP 50 · LGRA 59 |
-| 06 | Colusión: rotación en grupos cerrados, anillos de constitución, fraccionamiento mismo día | patrón |
-| 07 | Convenios modificatorios sobre el tope legal | LAASSP 52 · LOPSRM 59 |
-| 08 | CFE (fuera de ComprasMX): contratos adjudicados × 69-B/SFP por nombre | CFF 69-B · LAASSP 50 |
-| 09 | Riesgo compuesto por proveedor: ensamble de señales distintas (validado en backtest: lift 5.0) | estadística |
-| 10 | Estatal (PNT): contratos de los 32 estados × 69-B/SFP por RFC, con respaldo por nombre etiquetado | CFF 69-B · LAASSP 50 |
-| 11 | Amontonamiento bajo umbrales: exceso de montos justo bajo los topes (prueba de signo + FDR) | LAASSP 1 y 41 |
-| 12 | Benford estatal: conformidad de montos por sujeto obligado (PNT) | estadística |
-| BT | Backtest: lift de cada señal y del ensamble contra sanciones posteriores, con IC de Wilson y Fisher exacto | estadística |
+| 01 | contratos × lista 69-B, 2023–2025 | cruce exacto por RFC |
+| 01h | contratos × 69-B, 2010–2023 | cruce por nombre (`normalizacion`), menor confianza |
+| 02 | concentración de adjudicaciones directas | agregación por proveedor/institución + etiquetas de contexto |
+| 03 | conformidad Benford por institución | `estadistica` (MAD Nigrini, Z, χ², FDR) |
+| 04 | empresas de reciente creación con contratos grandes | edad derivada del RFC + `fechas` |
+| 05 | contratos firmados durante inhabilitación SFP | cruce por RFC + ventana de `fechas` |
+| 06 | colusión: rotación, anillos de constitución, fraccionamiento mismo día | grafos de coincidencia + `fechas` |
+| 07 | convenios sobre el tope legal | aritmética monto final vs original |
+| 08 | CFE (fuera de ComprasMX) × 69-B/SFP | cruce por nombre |
+| 09 | riesgo compuesto por proveedor (ensamble) | combinación de señales, validado en backtest (lift 5.0) |
+| 10 | estatal (PNT) × 69-B/SFP | cruce por RFC + respaldo por nombre etiquetado |
+| 11 | amontonamiento bajo umbrales de adjudicación | prueba de signo + FDR (`estadistica`) |
+| 12 | Benford estatal por sujeto obligado | misma matemática que 03 |
+| BT | backtest: lift de cada señal y del ensamble | IC de Wilson + Fisher exacto |
 
-La estadística forense vive en `shared/estadistica.py` (sin dependencias):
-intervalo de Wilson, Fisher exacto de una cola, Benford 1.er/2.º dígito y Z de
-Nigrini, control de FDR de Benjamini-Hochberg, cola binomial. Toda probada en
-lockstep en `tests/`. Un *lift* sin intervalo es media verdad: cada señal
-predictiva se publica con su IC y su p de Fisher.
+### Proposiciones en vivo (`realtime/risk.py`)
 
-### Proposiciones en vivo (monitor de señales)
-
-`realtime/risk.py` puntúa cada procedimiento y adjudicación conforme se
-publican. El score es la suma de las banderas; cada bandera explica por qué
-surgió el caso.
+Puntúa cada procedimiento y adjudicación conforme se publican; el score es la
+suma de las banderas, y cada bandera registra por qué surgió el caso.
 
 | Peso | Bandera |
 |---|---|
-| +8 | Inhabilitado SFP que ganó **durante** la inhabilitación |
-| +8 | **Ganó ya inhabilitado** por circular del DOF, aún fuera del directorio |
-| +6 | Proveedor 69-B **definitivo** |
-| +3 | Sancionado SFP · inhabilitación del DOF recién publicada |
+| +8 | inhabilitado SFP que ganó **durante** la inhabilitación · **ganó ya inhabilitado** por circular del DOF aún fuera del directorio |
+| +6 | proveedor 69-B definitivo |
+| +3 | sancionado SFP · inhabilitación del DOF recién publicada |
 | +2 | 69-B presunto · adjudicación directa · plazo recortado · plazo comprimido (<10 días) · emergencia |
-| +1 | Excepción de ley · anticipo · monto alto (≥ $50M) |
+| +1 | excepción de ley · anticipo · monto alto (≥ $50M) |
 
-Componentes: cliente ComprasMX (`comprasmx_client.py`, scrapling
-`capture_xhr`), índices `efos_index` / `sfp_index` / `dof_index`, poller
-`poll.py`, paquetes de verificación `packets.py`, casero persistente `store.py`.
+Componentes de la capa: cliente ComprasMX (`comprasmx_client.py`,
+`capture_xhr`), índices `efos_index`/`sfp_index`/`dof_index`, poller `poll.py`,
+paquetes de verificación `packets.py`, casero persistente `store.py`.
 
-## 5. La demostración (cómo se construye y se corre)
+## 5. La demostración (correr y construir)
 
 ### Reproducir
 
@@ -150,12 +137,11 @@ python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/scrapling install        # navegador para la capa de tiempo real
 
-scripts/update.sh                  # lote: descarga CSV → detectores + backtest → sitio
-scripts/realtime_poll.sh           # tiempo real: ComprasMX en vivo → alertas → sitio
+scripts/update.sh                  # lote: descarga CSV → detectores + backtest → datos del sitio
+scripts/realtime_poll.sh           # tiempo real: ComprasMX en vivo → alertas → datos del sitio
 ```
 
-Pruebas (lógica de cruces, normalización de nombres, ventanas de
-inhabilitación, scoring):
+Pruebas (lógica de cruces, normalización, ventanas, scoring, estadística):
 
 ```sh
 .venv/bin/pip install -r requirements-dev.txt
@@ -164,10 +150,9 @@ inhabilitación, scoring):
 
 Resultados en `findings/`.
 
-### La cadena de dependencias del pipeline
+### Cadena de dependencias del pipeline
 
-Igual que la proposición 47 de Euclides se apoya en la 41, la 37, la 35… hasta
-las definiciones, cada paso del pipeline depende del anterior:
+Cada paso depende del anterior:
 
 ```
 descarga (condicional, If-Modified-Since)
@@ -177,20 +162,18 @@ descarga (condicional, If-Modified-Since)
         → sitio Next.js (export estático en web/) → Vercel
 ```
 
-El lote cruza por RFC exacto y deriva la edad de la empresa del propio RFC. El
-tiempo real maneja la SPA real de ComprasMX y captura las respuestas que la
-app firma, en lugar de romper sus tokens anti-bot. Los datos estatales bajan de
-la PNT (`scripts/pnt_contratos.py`, reanudable) y `detectors/pnt.py` normaliza
-sus ~80 columnas a la misma vista que los contratos federales.
+Datos estatales: `scripts/pnt_contratos.py` baja de la PNT por sujeto obligado
+(reanudable), y `detectors/pnt.py` normaliza sus ~80 columnas a la misma vista
+que los contratos federales (`contracts_pnt`).
 
-## 6. Del hallazgo a la denuncia
+## 6. Del hallazgo a la denuncia (`casework/`)
 
 | Componente | Uso |
 |---|---|
-| `casework/triage.py` | tría todos los hallazgos (federal + estatal) en presentar / verificar / descartar; `python -m casework.triage scan` |
-| `casework/denuncias.py` | borradores/denuncias en Markdown (SIDEC/OIC por caso, ASF y CNA consolidadas) |
+| `casework/triage.py` | tría todos los hallazgos en presentar / verificar / descartar; `python -m casework.triage scan` |
+| `casework/denuncias.py` | borradores/denuncias en Markdown (SIDEC/OIC, ASF, CNA) |
 | `casework/pdf.py` | Markdown → PDF formato legal (A4) vía Chromium |
-| `casework/dashboard.py` | dashboard local (puerto 8765): casos, estados, generación de PDF |
+| `casework/dashboard.py` | dashboard local (puerto 8765): casos, estados, PDF |
 | `realtime/store.py` | ciclo del caso: nuevo → verificando → verificado → denunciado → publicado / descartado |
 
 **Operación continua.** `scripts/install_launchd.sh` instala dos agentes en la
@@ -201,9 +184,8 @@ máquina (la captura scrapling necesita IP residencial):
 - `com.expedienteabierto.poll` — cada 30 min: `scripts/realtime_poll.sh` (poll en
   vivo → alertas → despliega solo si los datos exportados cambiaron).
 
-Los workflows de `.github/` (CI de tests, despliegue y refresco diario de datos)
-quedan listos pero dormantes hasta que el repo tenga remoto y el secret
-`VERCEL_TOKEN`.
+Los workflows de `.github/` (CI de tests, despliegue y refresco diario) quedan
+listos pero dormantes hasta que el repo tenga el secret `VERCEL_TOKEN`.
 
 ## Principios
 
