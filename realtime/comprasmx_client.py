@@ -15,6 +15,14 @@ The list endpoint exposes NO supplier RFC; awards in `drc` carry `licitante`
 (name) only. Realtime supplier identity is therefore name-based (lower
 confidence than the RFC join in the annual batch) — callers must treat it as a
 screen requiring verification, never a verdict.
+
+Known limits of the public detail JSON (verified live 2026-06-11):
+  - bidder/participant lists are NOT exposed structurally — they exist only
+    inside the actas PDFs under `anexos` (single-bidder detection would need
+    PDF parsing);
+  - `reqeconomicos` carries the LINE ITEMS (clave_cucop, quantities, min/max
+    amounts) — usable for item-level price screens;
+  - `lapp` is public-private-partnership project info, not bidders.
 """
 from __future__ import annotations
 
@@ -48,20 +56,18 @@ class Procedure:
 
     @classmethod
     def from_row(cls, r: dict) -> "Procedure":
+        # un null JSON explícito (no clave ausente) debe dar "" en campos str,
+        # no None — poll.py confía en p.estatus.upper() sin guardas.
+        g = lambda k: r.get(k) or ""
         return cls(
-            uuid=r.get("uuid_procedimiento", ""),
-            numero=r.get("numero_procedimiento", ""),
-            nombre=r.get("nombre_procedimiento", ""),
-            siglas=r.get("siglas", ""),
-            estatus=r.get("estatus", ""),
-            tipo_procedimiento=r.get("tipo_procedimiento", ""),
-            tipo_contratacion=r.get("tipo_contratacion", ""),
-            caracter=r.get("caracter", ""),
-            entidad=r.get("entidad_federativa_contratacion", ""),
-            unidad_compradora=r.get("unidad_compradora", ""),
+            uuid=g("uuid_procedimiento"), numero=g("numero_procedimiento"),
+            nombre=g("nombre_procedimiento"), siglas=g("siglas"),
+            estatus=g("estatus"), tipo_procedimiento=g("tipo_procedimiento"),
+            tipo_contratacion=g("tipo_contratacion"), caracter=g("caracter"),
+            entidad=g("entidad_federativa_contratacion"),
+            unidad_compradora=g("unidad_compradora"),
             fecha_apertura=r.get("fecha_apertura"),
-            cod_expediente=r.get("cod_expediente", ""),
-            raw=r,
+            cod_expediente=g("cod_expediente"), raw=r,
         )
 
 
@@ -89,6 +95,35 @@ def _first_json(page, url_contains):
     return None
 
 
+def _all_json(page, url_contains):
+    out = []
+    for x in getattr(page, "captured_xhr", []) or []:
+        if url_contains in x.url:
+            try:
+                out.append(json.loads(x.body))
+            except Exception:
+                continue
+    return out
+
+
+def merge_list_pages(payloads: list[dict]) -> list[dict]:
+    """Une las respuestas capturadas del listado (una por página), dedup por
+    uuid: el portal puede repetir filas entre clics si publica en medio."""
+    rows, seen = [], set()
+    for data in payloads:
+        if not isinstance(data, dict) or not data.get("success"):
+            continue
+        for block in data.get("data") or []:
+            for r in block.get("registros") or []:
+                u = r.get("uuid_procedimiento")
+                if u and u in seen:
+                    continue
+                if u:
+                    seen.add(u)
+                rows.append(r)
+    return rows
+
+
 class ComprasMXClient:
     """Wraps a single scrapling DynamicSession; reuse across calls in one poll."""
 
@@ -108,15 +143,38 @@ class ComprasMXClient:
     def __exit__(self, *a):
         return self._session_cm.__exit__(*a)
 
-    def fetch_recent(self, rows: int = 100, page: int = 1) -> list[Procedure]:
-        """Most-recent procedures (the list endpoint fires on SPA load)."""
+    def fetch_recent(self, pages: int = 1) -> list[Procedure]:
+        """Most-recent procedures. The SPA loads 100 rows per page
+        (`expedientes?rows=100&page=N`); clicking the PrimeNG paginator fires
+        one capturable XHR per page. `pages` > 1 widens the window so a poll
+        every 30 min can't miss a burst of publications on the first page."""
         url = f"{BASE_SPA}"
-        p = self._s.fetch(url, load_dom=True, wait=self._wait)
-        data = _first_json(p, "/expedientes?")
-        if not data or not data.get("success"):
+
+        def _paginate(page):
+            for _ in range(pages - 1):
+                page.wait_for_timeout(1500)
+                try:
+                    page.click("button.p-paginator-next:not(.p-disabled)",
+                               timeout=4000)
+                except Exception:
+                    break  # última página alcanzada o paginador cambió
+            page.wait_for_timeout(2500)
+            return page
+
+        if pages > 1:
+            p = self._s.fetch(url, load_dom=True, wait=self._wait,
+                              page_action=_paginate)
+        else:
+            p = self._s.fetch(url, load_dom=True, wait=self._wait)
+        payloads = _all_json(p, "/expedientes?")
+        if not payloads:
+            print("WARN: no se capturó la respuesta del listado — portal "
+                  "caído o cambio en la SPA (no es un feed vacío)")
             return []
-        block = data["data"][0]
-        return [Procedure.from_row(r) for r in block["registros"]]
+        if not any(d.get("success") for d in payloads if isinstance(d, dict)):
+            print(f"WARN: el portal respondió success=false: {str(payloads[0])[:120]}")
+            return []
+        return [Procedure.from_row(r) for r in merge_list_pages(payloads)]
 
     def fetch_detail(self, uuid: str) -> tuple[dict | None, list[Award]]:
         """Full record + parsed awards (drc) for one procedure."""

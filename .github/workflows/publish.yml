@@ -1,0 +1,43 @@
+# Despliegue del sitio a Vercel desde CI.
+#
+# DORMANTE hasta que el repo tenga remoto en GitHub + el secret VERCEL_TOKEN
+# (vercel.com -> Account Settings -> Tokens). Hoy el despliegue lo hace la Mac
+# vía launchd (scripts/install_launchd.sh); este workflow cubre pushes de
+# código del sitio cuando exista remoto.
+#
+# Nota: findings/alerts.jsonl (feed en vivo) solo existe en la Mac, así que un
+# deploy desde CI sale sin alertas en vivo; el poll local lo repone en <=30 min.
+name: publish
+on:
+  push:
+    branches: [main, master]
+    paths: ["web/**", "findings/**", "scripts/export_web_data.py"]
+  workflow_dispatch:
+
+env:
+  VERCEL_ORG_ID: team_psNY1kCDwuZDeuq7uT3NFcoH
+  VERCEL_PROJECT_ID: prj_8fWGpwuu3KluRrIfCGvmQ3ODaU7R
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas
+      - run: python scripts/export_web_data.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+        working-directory: web
+      - run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        working-directory: web
+      - run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        working-directory: web
+      - run: npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        working-directory: web

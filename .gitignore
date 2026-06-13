@@ -1,5 +1,6 @@
-data/raw/*.csv
-data/raw/*.json
+# datos crudos (24GB, incl. data/raw/pnt 11GB): nada salvo el manifiesto
+data/raw/*
+!data/raw/MANIFEST.tsv
 data/work/
 data/state/
 .venv/
@@ -8,3 +9,12 @@ __pycache__/
 *.bak
 .playwright-mcp/
 findings/alerts.jsonl
+findings/packets/
+findings/denuncias/*
+!findings/denuncias/folios_publicos.json
+!findings/denuncias/denuncias_publicas.json
+
+# basura del SO / cachés de herramientas / capturas sueltas en la raíz
+.DS_Store
+.desloppify/
+/*.jpeg

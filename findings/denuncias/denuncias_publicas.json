@@ -1,0 +1,256 @@
+[
+ {
+  "empresa": "CONSTRUCCION Y ASESORIA EN OBRAS Y SERVICIOS SA DE CV",
+  "rfc": "CAO070122P44",
+  "inhabilitada_desde": "2023-05-04",
+  "inhabilitada_hasta": "2024-05-03",
+  "contratos": [
+   {
+    "fecha": "2023-09-11",
+    "institucion": "INFRAESTRUCTURA, COMUNICACIONES Y TRANSPORTES",
+    "monto_mxn_millones": 9.99,
+    "importe_mxn": 9985448.58,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/8a8bd18d1d6b47bda970f21c4df78a57/procedimiento",
+    "folio": "83004-2026"
+   },
+   {
+    "fecha": "2023-11-16",
+    "institucion": "CAMINOS Y PUENTES FEDERALES DE INGRESOS Y SERVICIOS CONEXOS",
+    "monto_mxn_millones": 9.45,
+    "importe_mxn": 9450364.4,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/fbe9ef627f5248f4abf1bf40996cffca/procedimiento",
+    "folio": "83016-2026"
+   }
+  ],
+  "folios": [
+   "83004-2026",
+   "83016-2026"
+  ]
+ },
+ {
+  "empresa": "SERVICIOS INDUSTRIALES Y EMPRESARIALES DE LA LAGUNA SA DE CV",
+  "rfc": "SIE020425UJ7",
+  "inhabilitada_desde": "2024-12-18",
+  "inhabilitada_hasta": "2025-12-18",
+  "contratos": [
+   {
+    "fecha": "2025-04-01",
+    "institucion": "SECRETARIA DE AGRICULTURA Y DESARROLLO RURAL",
+    "monto_mxn_millones": 3.26,
+    "importe_mxn": 3262500.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/a07f49341c1c410b884a029ccdeaa586/procedimiento",
+    "folio": "83017-2026"
+   },
+   {
+    "fecha": "2025-04-01",
+    "institucion": "CENTRO DE INVESTIGACION Y DE ESTUDIOS AVANZADOS DEL INSTITUTO POLITECNICO NACIONAL",
+    "monto_mxn_millones": 2.0,
+    "importe_mxn": 1998000.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/9d7b9029de2549129272ae976e058b29/procedimiento",
+    "folio": "83018-2026"
+   },
+   {
+    "fecha": "2025-06-04",
+    "institucion": "COMISION NACIONAL DEL AGUA",
+    "monto_mxn_millones": 0.76,
+    "importe_mxn": 764619.9,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/e421223cbc2e467dbe07752a74c55a7a/procedimiento",
+    "folio": "83019-2026"
+   },
+   {
+    "fecha": "2025-03-01",
+    "institucion": "SECRETARIA DE AGRICULTURA Y DESARROLLO RURAL",
+    "monto_mxn_millones": 0.73,
+    "importe_mxn": 725000.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/2ff0b02f4d80450c805fbc3cc53d8e9a/procedimiento",
+    "folio": "83017-2026"
+   },
+   {
+    "fecha": "2025-04-01",
+    "institucion": "ALIMENTACIÓN PARA EL BIENESTAR, S.A. DE C.V.",
+    "monto_mxn_millones": 0.65,
+    "importe_mxn": 648000.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/7e830d4906834fcbb82ba6a5db04a8ba/procedimiento",
+    "folio": "83020-2026"
+   },
+   {
+    "fecha": "2025-03-16",
+    "institucion": "SERVICIO GEOLOGICO MEXICANO",
+    "monto_mxn_millones": 0.55,
+    "importe_mxn": 551000.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/eed7a0d53ce1471286c0d30370d79694/procedimiento",
+    "folio": "83021-2026"
+   },
+   {
+    "fecha": "2025-01-04",
+    "institucion": "COMISION NACIONAL FORESTAL",
+    "monto_mxn_millones": 0.49,
+    "importe_mxn": 492105.26,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/25de61cb22d94e3b8cbabeb4b6d3ead6/procedimiento",
+    "folio": "83022-2026"
+   },
+   {
+    "fecha": "2025-03-01",
+    "institucion": "CENTRO DE INVESTIGACION Y DE ESTUDIOS AVANZADOS DEL INSTITUTO POLITECNICO NACIONAL",
+    "monto_mxn_millones": 0.22,
+    "importe_mxn": 222000.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/2410ffd7fecf4605b94c478c223c245e/procedimiento",
+    "folio": "83018-2026"
+   }
+  ],
+  "folios": [
+   "83017-2026",
+   "83018-2026",
+   "83019-2026",
+   "83020-2026",
+   "83021-2026",
+   "83022-2026"
+  ]
+ },
+ {
+  "empresa": "LOGISTICA MEDICA DE OCCIDENTE S DE RL DE CV",
+  "rfc": "LMO111129RJ7",
+  "inhabilitada_desde": "2022-12-09",
+  "inhabilitada_hasta": "2024-06-09",
+  "contratos": [
+   {
+    "fecha": "2023-02-17",
+    "institucion": "INSTITUTO MEXICANO DEL SEGURO SOCIAL",
+    "monto_mxn_millones": 0.24,
+    "importe_mxn": 242250.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/790cf63666144bc6837c0be076e5b078/procedimiento",
+    "folio": "83023-2026"
+   },
+   {
+    "fecha": "2023-02-17",
+    "institucion": "INSTITUTO MEXICANO DEL SEGURO SOCIAL",
+    "monto_mxn_millones": 0.13,
+    "importe_mxn": 126000.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/790cf63666144bc6837c0be076e5b078/procedimiento",
+    "folio": "83023-2026"
+   },
+   {
+    "fecha": "2023-02-17",
+    "institucion": "INSTITUTO MEXICANO DEL SEGURO SOCIAL",
+    "monto_mxn_millones": 0.11,
+    "importe_mxn": 110000.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/790cf63666144bc6837c0be076e5b078/procedimiento",
+    "folio": "83023-2026"
+   }
+  ],
+  "folios": [
+   "83023-2026"
+  ]
+ },
+ {
+  "empresa": "ALBOREA TECNOLOGIA SA DE CV",
+  "rfc": "ATE160721KI7",
+  "inhabilitada_desde": "2023-09-26",
+  "inhabilitada_hasta": "2025-03-26",
+  "contratos": [
+   {
+    "fecha": "2023-09-28",
+    "institucion": "INSTITUTO MEXICANO DEL SEGURO SOCIAL",
+    "monto_mxn_millones": 0.1,
+    "importe_mxn": 103320.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/1e0e81e3a82249e3a59b515e1dc37a6f/procedimiento",
+    "folio": "83024-2026"
+   },
+   {
+    "fecha": "2023-09-28",
+    "institucion": "INSTITUTO MEXICANO DEL SEGURO SOCIAL",
+    "monto_mxn_millones": 0.08,
+    "importe_mxn": 78000.0,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/1e0e81e3a82249e3a59b515e1dc37a6f/procedimiento",
+    "folio": "83024-2026"
+   }
+  ],
+  "folios": [
+   "83024-2026"
+  ]
+ },
+ {
+  "empresa": "ANSOF COMERCIALIZADORES SA DE CV",
+  "rfc": "ACO150612873",
+  "inhabilitada_desde": "2025-05-14",
+  "inhabilitada_hasta": "2026-08-14",
+  "contratos": [
+   {
+    "fecha": "2025-06-02",
+    "institucion": "SERVICIOS DE SALUD DEL INSTITUTO MEXICANO DEL SEGURO SOCIAL PARA EL BIENESTAR",
+    "monto_mxn_millones": 0.12,
+    "importe_mxn": 119719.18,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/09bd3e9392c84c3ebe86eb50a185a871/procedimiento",
+    "folio": "83025-2026"
+   },
+   {
+    "fecha": "2025-05-26",
+    "institucion": "SERVICIOS DE SALUD DEL INSTITUTO MEXICANO DEL SEGURO SOCIAL PARA EL BIENESTAR",
+    "monto_mxn_millones": 0.0,
+    "importe_mxn": 4559.4,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/09bd3e9392c84c3ebe86eb50a185a871/procedimiento",
+    "folio": "83025-2026"
+   }
+  ],
+  "folios": [
+   "83025-2026"
+  ]
+ },
+ {
+  "empresa": "CENTRO DE COMERCIALIZACION Y FABRICACION DE MOBILIARIO Y EQUIPO",
+  "rfc": "CCF180213TK5",
+  "inhabilitada_desde": "2022-12-23",
+  "inhabilitada_hasta": "2024-06-23",
+  "contratos": [
+   {
+    "fecha": "2023-05-19",
+    "institucion": "INSTITUTO MEXICANO DEL SEGURO SOCIAL",
+    "monto_mxn_millones": 0.07,
+    "importe_mxn": 70202.6,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/72d23406ec514d11bba011690fdb28d5/procedimiento",
+    "folio": "83026-2026"
+   }
+  ],
+  "folios": [
+   "83026-2026"
+  ]
+ },
+ {
+  "empresa": "ZELAZOR AIROT SA DE CV",
+  "rfc": "ZAI970506M2A",
+  "inhabilitada_desde": "2023-04-28",
+  "inhabilitada_hasta": "2023-07-28",
+  "contratos": [
+   {
+    "fecha": "2023-05-03",
+    "institucion": "SECRETARIA DE LA DEFENSA NACIONAL",
+    "monto_mxn_millones": 0.05,
+    "importe_mxn": 51249.6,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/e01a722935f9421fb3018d9986092c93/procedimiento",
+    "folio": "83027-2026"
+   }
+  ],
+  "folios": [
+   "83027-2026"
+  ]
+ },
+ {
+  "empresa": "LABORATORIOS BYM SA DE CV",
+  "rfc": "LBY0701173R0",
+  "inhabilitada_desde": "2023-05-30",
+  "inhabilitada_hasta": "2025-11-30",
+  "contratos": [
+   {
+    "fecha": "2024-01-01",
+    "institucion": "INSTITUTO NACIONAL DE REHABILITACIÓN LUIS GUILLERMO IBARRA IBARRA",
+    "monto_mxn_millones": 0.0,
+    "importe_mxn": 2799.92,
+    "url": "https://upcp-compranet.funcionpublica.gob.mx/sitiopublico/#/sitiopublico/detalle/25e21dd99ff4464885844aef0c482edf/procedimiento",
+    "folio": "83028-2026"
+   }
+  ],
+  "folios": [
+   "83028-2026"
+  ]
+ }
+]

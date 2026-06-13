@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# generados por scripts/export_web_data.py
+src/data/
+public/datos/
+.vercel

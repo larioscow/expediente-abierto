@@ -1,4 +1,5 @@
 duckdb==1.5.3
+markdown==3.10.2
 pandas==3.0.3
 playwright==1.60.0
-scrapling==0.4.9
+scrapling[fetchers]==0.4.9

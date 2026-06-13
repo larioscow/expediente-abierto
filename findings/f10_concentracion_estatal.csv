@@ -1,0 +1,62 @@
+estado_comprador,sujeto_obligado,proveedor,contratos,monto_mxn_millones,pct_del_gasto_directo,directas_del_sujeto
+QUERÉTARO,QUE - Poder Ejecutivo del Estado de Queretaro,"SEGURITECH PRIVADA, S.A. DE C.V.",2,7826.14,82.9,14219.0
+TAMAULIPAS,TAM - Fiscalia General de Justicia del Estado de Tamaulipas,"Value Automotriz, SA de CV",4,3968.01,84.1,86.0
+TAMAULIPAS,TAM - Instituto del Deporte de Tamaulipas,Viajes Paradise S.A. de C.V.,2,2300.0,98.4,17.0
+SINALOA,SIN - AY00107-Junta de Agua Potable y Alcant. del Municipio de Ahome,SERVICIOS DEL VALLE DEL FUERTE S.A. de C.V.,1,960.0,80.5,22.0
+CIUDAD DE MÉXICO,"CMX - Secretaria de Educacion, Ciencia, Tecnologia e Innovacion",TOKA INTERNACIONAL S.A.P.I. DE C.V.,1,555.58,92.7,400.0
+VERACRUZ,VER - Ayuntamiento de Las Choapas,GIERXI Y ASOCIADOS S. DE R.L. DE C.V.,2,493.37,93.4,45.0
+OAXACA,OAX - INSTITUTO OAXAQUE?O CONSTRUCTOR DE INFRAESTRUCTURA EDUCATIVA,PROVEEDORA DE OFICINAS Y COMERCIOS HANSS S.A. DE C.V.,2,466.44,58.6,69.0
+CIUDAD DE MÉXICO,CMX - Tribunal Superior de Justicia de la Ciudad de Mexico,"Servicios BROXEL, S.A.P.I. de C.V.",1,424.76,50.5,208.0
+BAJA CALIFORNIA,BCN - Comision Estatal del Sistema Penitenciario de Baja California,Extractos de Frutas del Pacifico S.A. de C.V.,1,402.32,71.7,49.0
+JALISCO,JAL - O.P.D. Servicios de Salud Jalisco,"INTERMET, S.A. DE C.V.",3,330.0,87.5,22.0
+CAMPECHE,"CAM - Secretaria de Administracion, Finanzas y Planeacion del Poder Ejecutivo del Estado de Campeche","Txat Latam, S.A.P.I. de C.V.",2,256.41,62.1,4156.0
+YUCATÁN,YUC - Universidad Autonoma de Yucatan,Farmacias Universitarias S.A de C.V.,1,165.0,85.8,532.0
+QUINTANA ROO,ROO - SECRETARIA DE OBRAS PUBLICAS,COMPAÑÍA INTEGRA SOLUCIONES S.A. DE C.V.,2,158.99,59.8,19.0
+CHIAPAS,CHP - Ayuntamiento de Tenejapa,Adminstrador Unico,57,158.68,57.1,104.0
+HIDALGO,HID - Huejutla de Reyes,CONTRATISTA,140,125.52,100.0,140.0
+HIDALGO,HID - Actopan,COMERCIALIZADORA Y TRANSPORTES SAN JAVIER S.A. DE C.V.,3,123.6,71.5,145.0
+CHIAPAS,CHP - Fideicomiso de Prestaciones Seguridad Social para los Trabajadores del Sector Policial Operativo al Servicio del Poder Ejecutivo del Estado de Chiapas,Diagnoscentro SA de CV,5,89.94,65.6,21.0
+CIUDAD DE MÉXICO,CMX - Servicio de Transportes Electricos de la Ciudad de Mexico,"SEGUROS INBURSA S.A ., GRUPO FINANCIERO INBURSA",1,72.93,56.6,21.0
+CIUDAD DE MÉXICO,CMX - Alcaldia Gustavo A. Madero,"CONSTRUCTORA VARAZZE, S.A. DE C.V.",1,61.91,63.6,17.0
+GUERRERO,GRO - Instituto Electoral y de Participacion Ciudadana del Estado de Guerrero (IEPCGRO),TGM990109718,2,58.63,86.9,23.0
+YUCATÁN,YUC - Instituto Electoral y de Participacion Ciudadana de Yucatan.,GRAFICAS CORONA JE SA DE CV,1,57.05,76.6,22.0
+TABASCO,"TAB - H. AYUNTAMIENTO DEL MUNICIPIO DE CUNDUACAN, TABASCO",FISICA,34,54.62,62.3,60.0
+TABASCO,TAB - SECRETARIADO EJECUTIVO DEL SISTEMA ESTATAL DE SEGURIDAD PUBLICA (SESESP),"GRUAS DEL GRIJALVA, SA. DE CV.",3,53.26,71.9,54.0
+SONORA,SON - Puerto Pe?asco,Balcazar,1,48.1,52.9,46.0
+BAJA CALIFORNIA SUR,BCS - Secretaria de Seguridad Publica,COMERCIAL GEVARO S. DE R.L. DE C.V.,1,48.04,67.5,20.0
+CIUDAD DE MÉXICO,CMX - Servicios de Salud Publica de la Ciudad de Mexico,LAS PERSONAS FISICAS NO CUENTAN CON RAZON SOCIAL,8,44.3,68.7,18.0
+SONORA,SON - Secretaria de Hacienda,"COSMOCOLOR, S.A. DE C.V.",1,43.8,86.8,65.0
+TLAXCALA,TLA - Secretaria de Salud y O. P. D. Salud de Tlaxcala,"GRUPO COMERCIAL MIRA, S.A. DE C.V.",1,38.9,60.8,105.0
+HIDALGO,HID - Tepehuacan de Guerrero,FISICA,39,32.31,55.0,72.0
+TAMAULIPAS,TAM - Comision Municipal de Agua Potable y Alcantarillado de la Zona Conurbada de la desembocadura del Rio Panuco en el Estado de Tamaulipas,Servicios de Agua DLO SA de CV,2,31.25,62.7,236.0
+HIDALGO,HID - Calnali,PERSONA FÍSICA,34,29.94,76.6,45.0
+CIUDAD DE MÉXICO,CMX - Planta Productora de Mezclas Asfalticas,"NATURGY SERVICIOS, S.A. DE C.V.",1,28.0,70.7,38.0
+COAHUILA DE ZARAGOZA,COA - Secretaria de Cultura,Conectan Producción y Creatividad SC,2,25.36,67.0,34.0
+CIUDAD DE MÉXICO,CMX - Subsistema de Educacion Comunitaria PILARES,"ASESORES DE NEGOCIOS SYB, S.A. DE C.V.",2,24.72,62.7,140.0
+CHIAPAS,CHP - Ayuntamiento de Ixtapa,KREA-ARTE CONSTRUCCIONES Y ARQUITECTURA S.A DE C.V.,19,24.15,100.0,19.0
+PUEBLA,PUE - H. Ayuntamiento de Cuautlancingo,"MURSTEIN, S.A. DE C.V.",2,24.0,56.5,34.0
+HIDALGO,HID - Chapulhuacan,Grupo Constructor y Comercializador GITAV S.A. de C.V.,22,23.69,67.1,37.0
+CHIHUAHUA,CHH - Coordinacion de Politica Digital,"NIDIX NETWORKS, S.A. DE C.V.",4,23.53,54.5,19.0
+VERACRUZ,VER - Ayuntamiento de Cordoba,EMIGDIO MORAN MEDORIO,1,22.3,51.0,18.0
+CHIAPAS,CHP - Secretaria General de Gobierno y Mediacion (Anteriormente Secretaria General de Gobierno),TALLERES GRAFICOS DE CHIAPAS,4,22.26,59.2,801.0
+CIUDAD DE MÉXICO,CMX - Instituto para la Seguridad de las Construcciones en la Ciudad de Mexico,Asociacion Mexicana de Directores Responsables de Obra y Corresponsables A.C.,4,22.25,54.4,19.0
+TLAXCALA,TLA - Sistema Estatal para el Desarrollo Integral de la Familia Tlaxcala,"REPRESENTACIONES Y DISTRIBUCIONES DEL RELLO, S.A. DE C.V.",1,21.75,54.0,112.0
+PUEBLA,PUE - H. Ayuntamiento de Huauchinango,PERSONA FÍSICA,38,20.68,65.4,42.0
+JALISCO,JAL - Ayuntamiento de Zapotlanejo,GRUPO SANPERC S.A. DE C.V.,11,16.42,77.3,16.0
+QUINTANA ROO,ROO - INSTITUTO TECNOLOGICO SUPERIOR DE FELIPE CARRILLO,INSTITUTO DE INFRAESTRUCTURA FISICA EDUCATIVA  DEL ESTADO QUINTANA ROO,1,15.23,60.8,633.0
+MORELOS,MOR - Ayuntamiento de Amacuzac,SIREBA ARQUITECTOS S.A. DE C.V,10,15.07,61.7,19.0
+QUINTANA ROO,ROO - INSTITUTO DE MOVILIDAD DEL ESTADO DE QUINTANA ROO,"[[2, 'Segundo apellido de la(s) persona(s) beneficiaria(s) final(es)', 'VERGARA'], [2, 'Nombre(s) de la(s) persona(s) beneficiaria(s) final(es),', 'HERNANDO'], [2, 'Primer apellido de la(s) persona(s) beneficiaria(s) final(es),', 'RÍOS']]",1,15.0,65.8,21.0
+CIUDAD DE MÉXICO,CMX - Procuraduria Social de la Ciudad de Mexico,"SAHARA, MEZANINE, S.A. DE C.V., SOCIEDAD FINANCIERA DE OBJETO MÚLTIPLE ENTIDAD NO REGULADA, FIDUCIARIA",3,13.78,76.9,30.0
+GUANAJUATO,GUA - Santiago Maravatio,CONTRATISTA,18,13.71,67.4,23.0
+BAJA CALIFORNIA SUR,BCS - Comision Estatal del Agua,"Minimun Tecnología Ambiental, S.A. de C.V.",1,13.0,52.3,34.0
+TABASCO,TAB - SECRETARIA DE CULTURA,NO DATO,16,12.87,78.6,30.0
+SAN LUIS POTOSÍ,SLP - MUNICIPIO DE CIUDAD VALLES,no se genera informacion,17,12.78,85.6,21.0
+MICHOACÁN DE OCAMPO,MIC - Secretaria del Medio Ambiente,Persona Física,36,12.02,70.4,51.0
+SONORA,SON - Instituto de Movilidad y Transporte para el Estado de Sonora,"Distribuidora de Combustibles DCS de Sonora, S.A. de C.V.",1,11.6,68.0,15.0
+SAN LUIS POTOSÍ,SLP - DIRECCION GENERAL DE PENSIONES,Seguros Sura SA de CV,2,10.49,74.0,123.0
+MORELOS,MOR - Ayuntamiento de Jonacatepec de Leandro Valle,ARQUITECTURA E INGENIERIA BELAR  S.A. DE C.V.,12,10.47,51.0,25.0
+COLIMA,COL - Comision de Busqueda de Personas del Estado de Colima,DCZ9901191L1,4,10.09,68.9,27.0
+CIUDAD DE MÉXICO,CMX - Sistema para el Desarrollo Integral de la Familia de la Ciudad de Mexico,"Construcciones y Urbanizaciones Ivent, Sociedad Anonima de Capital Variable",1,9.96,53.8,24.0
+OAXACA,OAX - SECRETARIA DE DESARROLLO ECONOMICO,AGENCIA DE EVENTOS Y SERVICIOS TURISTICOS VIVAOAX S.A DE C.V,1,9.42,56.5,18.0
+CIUDAD DE MÉXICO,CMX - Secretaria de Pueblos y Barrios Originarios y Comunidades Indigenas Residentes,"RAICES FRAY SERVANDO, S.A. DE C.V.",1,8.76,77.9,20.0
+TAMAULIPAS,TAM - Comision Municipal de Agua Potable y Alcantarillado del municipio de Nuevo Laredo,GARZA,1,7.33,51.9,17.0

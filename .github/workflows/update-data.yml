@@ -1,0 +1,47 @@
+# Refresco diario de datos en la nube: descarga fuentes -> detectores ->
+# commit de findings/ actualizados. NO despliega (eso lo hace publish.yml o
+# la Mac); solo mantiene los hallazgos del repo al día.
+#
+# DORMANTE hasta que el repo tenga remoto en GitHub. Primer run con
+# supervisión: la captura scrapling (SFP) puede fallar desde IPs de
+# datacenter — por eso es continue-on-error y check_freshness lo reporta.
+name: update-data
+on:
+  schedule:
+    - cron: "30 13 * * *"   # 07:30 CDMX
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m playwright install chromium --with-deps
+      - run: scripts/download_data.sh
+      - run: python scripts/fetch_sfp.py
+        continue-on-error: true   # anti-bot puede bloquear IPs de datacenter
+      - run: python scripts/check_freshness.py
+        continue-on-error: true   # alarma visible en el log, no aborta
+      - name: detectores
+        run: |
+          for d in d01_efos_contracts d01h_efos_historico d02_direct_award_concentration \
+                   d03_benford d04_young_winners d05_sfp_sancionados d06_colusion \
+                   d07_convenios d08_cfe backtest; do
+            echo "== $d"
+            python -m "detectors.$d"
+          done
+      - name: commit hallazgos actualizados
+        run: |
+          git config user.name "expediente-abierto-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add findings data/raw/MANIFEST.tsv
+          git diff --cached --quiet && echo "sin cambios" && exit 0
+          git commit -m "data: refresco diario de fuentes y hallazgos"
+          git push

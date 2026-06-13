@@ -7,36 +7,22 @@ are possible. Definitivo = confirmed invoice mill; other statuses are context.
 from __future__ import annotations
 
 import csv
-import re
-import unicodedata
-from datetime import datetime
+from datetime import date
 from pathlib import Path
+
+from shared.esquemas import EFOS_COLS
+from shared.fechas import parse_fecha
+from shared.normalizacion import normalize
 
 RAW = Path(__file__).resolve().parent.parent / "data" / "raw" / "sat_69b_completo.csv"
 
-_SUFFIXES = re.compile(
-    r"\b(S\.?A\.? DE C\.?V\.?|S DE RL DE CV|SAPI DE CV|S A P I DE C V|SC|S C|"
-    r"AC|A C|SAB DE CV|SAS|SRL|S DE RL|SOFOM ENR?)\b",
-    re.I,
-)
 
 
-def normalize(name: str) -> str:
-    s = unicodedata.normalize("NFKD", name or "").encode("ascii", "ignore").decode()
-    s = s.upper()
-    s = _SUFFIXES.sub(" ", s)
-    s = re.sub(r"[^A-Z0-9 ]", " ", s)
-    s = re.sub(r"\s+", " ", s).strip()
-    return s
 
-
-def _parse_date(s):
-    for fmt in ("%d/%m/%Y", "%Y-%m-%d"):
-        try:
-            return datetime.strptime(s.strip(), fmt).date()
-        except (ValueError, AttributeError):
-            continue
-    return None
+def _rank(rec: dict) -> tuple[bool, date]:
+    """Homonym preference: Definitivo first, then most recent definitivo date."""
+    return (rec["situacion"] == "Definitivo",
+            rec["fecha_definitivo"] or date.min)
 
 
 class EfosIndex:
@@ -47,21 +33,26 @@ class EfosIndex:
             for _ in range(3):  # skip preamble + headers
                 next(reader, None)
             for row in reader:
-                if len(row) < 16 or len(row[1].strip()) < 12:
+                if len(row) < len(EFOS_COLS):
                     continue
-                key = normalize(row[2])
+                r = dict(zip(EFOS_COLS, (v.strip() for v in row)))
+                if len(r["rfc"]) < 12:
+                    continue
+                key = normalize(r["nombre"])
                 if len(key) < 8:
                     continue
                 rec = {
-                    "rfc": row[1].strip(),
-                    "nombre": row[2].strip(),
-                    "situacion": row[3].strip(),
-                    "fecha_definitivo": _parse_date(row[15]) or _parse_date(row[13]),
+                    "rfc": r["rfc"],
+                    "nombre": r["nombre"],
+                    "situacion": r["situacion"],
+                    "fecha_definitivo": parse_fecha(r["pub_dof_definitivos"])
+                    or parse_fecha(r["pub_sat_definitivos"]),
                 }
                 prev = self.by_name.get(key)
-                # prefer Definitivo, then most recent
-                if prev is None or (rec["situacion"] == "Definitivo" and prev["situacion"] != "Definitivo"):
+                if prev is None or _rank(rec) > _rank(prev):
                     self.by_name[key] = rec
 
-    def match(self, supplier_name: str) -> dict | None:
+    def match_name(self, supplier_name: str) -> dict | None:
         return self.by_name.get(normalize(supplier_name))
+
+    match = match_name  # alias de compatibilidad
