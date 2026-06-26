@@ -51,8 +51,6 @@ def denuncias_folios(base=None) -> list[str]:
     return []
 
 
-# ------------------------------------------------- denuncias con su caso
-
 _FOLIO = re.compile(r"SIDEC folio (\d+)/(\d{4})")
 _RFC_EN_NOMBRE = re.compile(r"\(([A-Z&Ñ]{3,4}\d{6}[A-Z0-9]{3})\)")
 

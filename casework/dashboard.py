@@ -89,8 +89,6 @@ def generar_doc(case_id: str, db: Path = DB) -> Path:
     return generar(case_id, out_dir=DENUNCIAS, render_pdf=True, db=db)
 
 
-# ------------------------------------------------------------------ HTML
-
 _BADGE = {"nuevo": "#5d564b", "verificando": "#8a6d00", "verificado": "#1d6b30",
           "denunciado": "#a3001e", "publicado": "#0b4a6f", "descartado": "#999"}
 _TIER = {"T1": "#a3001e", "T2": "#8a6d00", "T3": "#5d564b"}
@@ -238,8 +236,6 @@ RFC y por nombre normalizado):</p>
 <p class="sub"><a href="/">← volver</a></p>
 </div></body></html>"""
 
-
-# ------------------------------------------------------------------ server
 
 class _Handler(BaseHTTPRequestHandler):
     def _html(self, body: str, code: int = 200):

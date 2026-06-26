@@ -13,8 +13,6 @@ from casework.triage import (TriageStore, case_id, iter_candidatos,
 HOY = date(2026, 6, 13)
 
 
-# --------------------------------------------------------------- utilidades
-
 def _f05(rows):
     cols = ["proveedor", "rfc", "inhabilitado_desde", "hasta", "fecha_contrato",
             "institucion", "orden_gobierno", "estado_comprador",
@@ -57,8 +55,6 @@ def _denuncias(tmp_path, publicas=None, folios=None):
         json.dumps(folios or []), encoding="utf-8")
     return d
 
-
-# ------------------------------------------------------------------- tests
 
 def test_case_id_is_stable_and_normalized():
     a = case_id("est", "inhabilitado", "VERACRUZ", "Sec. de Salud", "ABC010101AA1")

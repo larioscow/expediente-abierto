@@ -188,8 +188,6 @@ class Candidato:
         return hashlib.sha1(blob.encode("utf-8")).hexdigest()
 
 
-# --------------------------------------------------------------- adaptadores
-
 def _ambito_orden(orden) -> str:
     o = normalize(orden)
     if any(k in o for k in ("ESTATAL", "ENTIDAD FEDERATIVA", "MUNICIPAL",
@@ -488,8 +486,6 @@ ADAPTERS = [
 ]
 
 
-# ------------------------------------------------------------- ya presentado
-
 @dataclass
 class FiledIndex:
     uuids: set
@@ -524,8 +520,6 @@ def load_filed_index(denuncias_dir: Path = DENUNCIAS) -> FiledIndex:
     folios = set(json.loads(fol.read_text())) if fol.exists() else set()
     return FiledIndex(uuids=uuids, pares=pares, folios=folios)
 
-
-# ------------------------------------------------------------------ scoring
 
 def _cobertura(findings_dir: Path) -> dict:
     """(estado, ejercicio) -> pct_rfc_valido (0..1) para descontar estados de
@@ -656,8 +650,6 @@ def iter_candidatos(findings_dir: Path = FINDINGS,
     return cands
 
 
-# -------------------------------------------------------------------- store
-
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS triage (
   case_id VARCHAR PRIMARY KEY, scope VARCHAR, pattern VARCHAR, ambito VARCHAR,
@@ -784,8 +776,6 @@ class TriageStore:
              cambiados, suprimidos, run_id])
 
 
-# --------------------------------------------------------------------- scan
-
 def scan(findings_dir: Path = FINDINGS, denuncias_dir: Path = DENUNCIAS,
          db: Path = DB, hoy: date | None = None) -> dict:
     """Corre todos los adaptadores, puntúa, coteja y persiste. Devuelve un
@@ -818,8 +808,6 @@ def scan(findings_dir: Path = FINDINGS, denuncias_dir: Path = DENUNCIAS,
             "cambiados": cambiados, "suprimidos": suprimidos,
             "emitidos": emitidos}
 
-
-# ------------------------------------------------------------- generación
 
 # estados en los que el documento sale presentable (no borrador)
 _PRESENTABLE = ("verificado", "denunciado", "publicado")
@@ -894,8 +882,6 @@ def generar(case_id: str, verificado: str | None = None,
     return p
 
 
-# ----------------------------------------------------------------- serialize
-
 def to_dict(c: Candidato) -> dict:
     aut, fund = routing(c.pattern, c.ambito)
     return {"case_id": c.case_id, "tier": c.tier, "pattern": c.pattern,
@@ -909,8 +895,6 @@ def to_dict(c: Candidato) -> dict:
             "source_file": c.source_file, "procedure_uuid": c.procedure_uuid,
             "evidencia": c.evidencia}
 
-
-# ----------------------------------------------------------------------- CLI
 
 def _print_json(obj):
     print(json.dumps(obj, ensure_ascii=False, indent=2, default=str))
