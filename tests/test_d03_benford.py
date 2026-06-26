@@ -40,7 +40,7 @@ def test_exceso_fabricado_sale_anomalo(tmp_path, monkeypatch, capsys):
     out.mkdir()
     monkeypatch.setattr("detectors.d03_benford.OUT", out)
     monkeypatch.setattr("sys.argv", ["d03", str(contracts)])
-    monkeypatch.setattr("detectors.common.load_views",
+    monkeypatch.setattr("detectors.d03_benford.load_views",
                         lambda con, *a, **k: load_views(con, [str(contracts)],
                                                         efos_path=str(efos)))
     d03_main()
