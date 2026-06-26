@@ -1,12 +1,4 @@
-# Despliegue del sitio a Vercel desde CI.
-#
-# Hoy el despliegue lo hace la Mac vía launchd (scripts/install_launchd.sh).
-# Este workflow cubre pushes de código del sitio: si existe el secret
-# VERCEL_TOKEN (vercel.com, Account Settings, Tokens) despliega; si no, el job
-# pasa en verde y no hace nada.
-#
-# Nota: findings/alerts.jsonl (feed en vivo) solo existe en la Mac, así que un
-# deploy desde CI sale sin alertas en vivo; el poll local lo repone en <=30 min.
+
 name: publish
 on:
   push:
